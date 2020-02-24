@@ -1,34 +1,44 @@
-package application;
-
-import java.util.PriorityQueue;
-import java.util.Vector;
-
+import java.util.LinkedList;
+import java.util.Timer;
+import java.util.TimerTask;
 public class Tables extends Menu{
-    private Vector<Integer>v;
-	public int T1, T2, T3, T4, T5, T6, T7, T8, T9;
-	private boolean flag;
-	 public void get
-	
-    
-    public Tables(){
-    	v = new Vector<Integer>();
-    }
-	public void PrintMenu(){
-    		
-    }
-	public void CustomerArrives() {
-		if 
+	private int vertices;
+	private LinkedList<Integer> list[];
+	Tables(int amount){
+		vertices = amount;
+		list = new LinkedList[50];
+		for(int i =0; i < vertices+1; i++) {
+			list[i] = new LinkedList<Integer>();
+		}
 	}
-    public void TableLogic() {
-    	PriorityQueue<Integer> t = new PriorityQueue<Integer>();
-    	if()
+	public void CustomersEntering() {
+		Timer timer = new Timer();
+		long startTime = System.currentTimeMillis();
+		long elapsedTime = 0L;
+
+		while (elapsedTime < 2*60*1000) {
+
+		   // elapsedTime = (new Date()).getTime() - startTime;
+		   System.out.println("hello");
+		}
+	}
+    public void PrintMenu(){
+
     }
+    public void setLayout() {
+
+    }
+    void addTables(int x, int y) {
+    	list[x].add(y);
+    }
+
 	public static void main(String[] args) {
 		//System.out.println("hi");
-		Tables myTable = new Tables();
+		Tables myTable = new Tables(9);
 		myTable.Items();
-		
-        
+		//myTable.CustomersEntering();
+
+
 	}
 
 }
