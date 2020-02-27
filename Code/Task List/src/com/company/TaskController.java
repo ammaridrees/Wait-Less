@@ -2,31 +2,34 @@ package com.company;
 
 public class TaskController{
 
-    Queue userQueue;
-
-    public void sendTask(Task taskSend, User employee )
+    public void sendTask(Task taskSend, User employee1, User employee2 )
     {
-
+        employee2.userQueue.add(taskSend);
+        deleteTask(employee1, taskSend);
     }
-    public void deleteTask(Task taskDelete )
+    public void deleteTask(User employee)
     {
-
+        employee.userQueue.dequeue();
     }
-
-    public void moveTop(Task priority)
+    public void deleteTask(User employee,Task taskDelete )
     {
-
+        employee.userQueue.dequeue(taskDelete);
     }
-    public Task getTask(int taskID)
+    public void moveTop(User employee, Task priority)
+    {
+        employee.userQueue.move(priority, 0);
+    }
+    public Task getTask(User employee, int taskID)
     {
         return new Task();
     }
-    public void moveUp(Task taskUp)
+    public void moveUp(User employee, Task moveTask, int move)
     {
+        employee.userQueue.move(moveTask,move);
 
     }
-    public void moveDown(Task taskDown)
+    public void moveDown(User employee, Task moveTask, int move)
     {
-
+        employee.userQueue.move(moveTask,move);
     }
 }

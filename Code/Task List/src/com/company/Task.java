@@ -1,14 +1,24 @@
 package com.company;
 
 public class Task {
+    private static int count;
     private int taskID;
     private String taskCreator;
     private Float timeCreated;
 
     Task()
     {
-       taskID = 0;
+       taskID = count;
+       count++;
+       taskCreator = "No Name";
     }
+    Task(String name)
+    {
+        taskID = count;
+        count++;
+        taskCreator = name;
+    }
+
     public void setTaskID(int ID)
     {
         taskID = ID;
