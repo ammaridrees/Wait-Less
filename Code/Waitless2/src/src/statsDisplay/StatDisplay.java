@@ -52,11 +52,11 @@ public class StatDisplay extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
-		Object rowData[][] = {{"Tasks to Complete", "0"},
+		Object rowData[][] = {{"Tasks to Complete", "4"},
 							  {"Tables Occupied", "0"},
-							  {"Tables Open", "0"},
+							  {"Tables Open", "8"},
 							  {"Customers Waiting", "0"},
-							  {"Average Wait time", "0"}};
+							  {"Average Wait time", "0 minutes"}};
 		
 		Object columnNames[] = {"Column One", "Column Two"};
 		
