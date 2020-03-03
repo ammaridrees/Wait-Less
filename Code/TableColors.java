@@ -26,8 +26,16 @@ import javax.swing.JTextArea;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 
+
 public class Tabledisplay extends JFrame implements ActionListener{
 
+	private class table {
+		boolean isClicked;
+		table () {
+			isClicked = false;
+		}
+	}
+	
 	private JPanel contentPane;
 	protected JButton lblTableOne,lblTableTwo,lblTableThree,lblTableFour,lblTableFive,lblTableSix, lblTableSeven, lblTableEight;
     public PriorityQueue<Integer>peopleList = new PriorityQueue<Integer>();
@@ -261,7 +269,9 @@ public class Tabledisplay extends JFrame implements ActionListener{
 	    lblTableSeven.addActionListener(this);
 	    lblTableEight.addActionListener(this);
 	    
-	    
+	    table table1;
+	    table table2;
+	    table table3;
 	   
 	   
 		
@@ -298,7 +308,7 @@ public class Tabledisplay extends JFrame implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-			if ("One".equals(e.getActionCommand()) && !isClicked) {
+			if ("One".equals(e.getActionCommand()) && !table1.isClicked) {
 			    peopleList.add(NumberGenerator());
 			    
 			    lblTableOne.setBackground(Color.RED);
@@ -306,40 +316,44 @@ public class Tabledisplay extends JFrame implements ActionListener{
 		    	lblTableOne.setOpaque(true);
 		    	lblTableOne.setBorderPainted(false);
 		    	System.out.println("Table is in use");
+		    	table1.isClicked = true;
 		    	} 
 			 else {
 				 lblTableOne.setBackground(Color.GREEN);
 			    	lblTableOne.setOpaque(true);
 			    	lblTableOne.setBorderPainted(false);
+			    	table1.isClicked = false;
 			 }
-			isClicked = !isClicked;
-		 if ("Two".equals(e.getActionCommand()) && !isClicked) {
+		 if ("Two".equals(e.getActionCommand()) && !table2.isClicked) {
 			    peopleList.add(NumberGenerator());
 			    
 			    lblTableTwo.setBackground(Color.RED);
 		    	
 		    	lblTableTwo.setOpaque(true);
 		    	lblTableTwo.setBorderPainted(false);
-		    	System.out.println("Table is in use");}
+		    	System.out.println("Table is in use");
+		    	table2.isClicked = true;
+		    	}
 		 else {
 			 lblTableTwo.setBackground(Color.GREEN);
 		    	lblTableTwo.setOpaque(true);
 		    	lblTableTwo.setBorderPainted(false);
-		    	
+		    	table2.isClicked = false;
 		 }
-		 isClicked = !isClicked;
-		 if ("Three".equals(e.getActionCommand()) && !isClicked) {
+		 if ("Three".equals(e.getActionCommand()) && !table3.isClicked) {
 			 lblTableThree.setBackground(Color.RED);
 		    	
 		    	lblTableThree.setOpaque(true);
 		    	lblTableThree.setBorderPainted(false);
-		    	System.out.println("Table is in use");} 
+		    	System.out.println("Table is in use");
+		    	table3.isClicked = true;
+		    	} 
 		 else
 		 {
 			 	lblTableThree.setBackground(Color.GREEN);
 		    	lblTableThree.setOpaque(true);
 		    	lblTableThree.setBorderPainted(false);
-		    	//isClicked = !isClicked;
+		    	table3.isClicked = false;
 		 }
 		 if ("Four".equals(e.getActionCommand()) && !isClicked) {
 			 lblTableFour.setBackground(Color.RED);
