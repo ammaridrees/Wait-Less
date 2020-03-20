@@ -1,8 +1,12 @@
-
 package tableLayout;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
+import net.miginfocom.swing.MigLayout;
+
+import javax.swing.*;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.border.EmptyBorder;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -10,43 +14,21 @@ import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Random;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.BoxLayout;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-
-import net.miginfocom.swing.MigLayout;
-
-import java.awt.Color;
-import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.JTextField;
-import javax.swing.JTextArea;
-import javax.swing.JLabel;
-import javax.swing.JButton;
+import statsDisplay.StatDisplay;
 
 public class Tabledisplay extends JFrame implements ActionListener {
 
-    private JPanel contentPane;
-    protected JButton lblTableOne, lblTableTwo, lblTableThree, lblTableFour, lblTableFive, lblTableSix, lblTableSeven, lblTableEight;
-    public PriorityQueue<Integer> peopleList = new PriorityQueue<Integer>();
     /**
      * Launch the application.
      */
     public static boolean isClicked1, isClicked2, isClicked3, isClicked4, isClicked5, isClicked6, isClicked7, isClicked8 = false;
+    public PriorityQueue<Integer> peopleList = new PriorityQueue<Integer>();
+    protected JButton lblTableOne, lblTableTwo, lblTableThree, lblTableFour, lblTableFive, lblTableSix, lblTableSeven, lblTableEight;
+    private JPanel contentPane;
+    private static int available = 8;
 
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    tableLayout.Tabledisplay frame = new tableLayout.Tabledisplay();
-                    frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
+    public static int getAvailable() {
+        return available;
     }
 
     /**
@@ -193,6 +175,19 @@ public class Tabledisplay extends JFrame implements ActionListener {
 
     }
 
+    public static void main(String[] args) {
+        EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                    tableLayout.Tabledisplay frame = new tableLayout.Tabledisplay();
+                    frame.setVisible(true);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
     public int NumberGenerator() {
         List<Integer> list = new ArrayList<>();
         list.add(1);
@@ -225,6 +220,7 @@ public class Tabledisplay extends JFrame implements ActionListener {
             lblTableOne.setOpaque(true);
             lblTableOne.setBorderPainted(false);
             System.out.println("working");
+            available--;
             isClicked1 = true;
         } else if ("One".equals(e.getActionCommand()) && isClicked1) {
             peopleList.add(NumberGenerator());
@@ -234,6 +230,7 @@ public class Tabledisplay extends JFrame implements ActionListener {
             lblTableOne.setOpaque(true);
             lblTableOne.setBorderPainted(false);
             System.out.println("working");
+            available++;
             isClicked1 = false;
         } else if ("Two".equals(e.getActionCommand()) && !isClicked2) {
 
@@ -242,6 +239,7 @@ public class Tabledisplay extends JFrame implements ActionListener {
             lblTableTwo.setOpaque(true);
             lblTableTwo.setBorderPainted(false);
             System.out.println("working");
+            available--;
             isClicked2 = true;
         } else if ("Two".equals(e.getActionCommand()) && isClicked2) {
 
@@ -250,6 +248,7 @@ public class Tabledisplay extends JFrame implements ActionListener {
             lblTableTwo.setOpaque(true);
             lblTableTwo.setBorderPainted(false);
             System.out.println("working");
+            available++;
             isClicked2 = false;
         } else if ("Three".equals(e.getActionCommand()) && !isClicked3) {
             lblTableThree.setBackground(Color.RED);
@@ -257,6 +256,7 @@ public class Tabledisplay extends JFrame implements ActionListener {
             lblTableThree.setOpaque(true);
             lblTableThree.setBorderPainted(false);
             System.out.println("working");
+            available--;
             isClicked3 = true;
         } else if ("Three".equals(e.getActionCommand()) && isClicked3) {
             lblTableThree.setBackground(Color.WHITE);
@@ -264,6 +264,7 @@ public class Tabledisplay extends JFrame implements ActionListener {
             lblTableThree.setOpaque(true);
             lblTableThree.setBorderPainted(false);
             System.out.println("working");
+            available++;
             isClicked3 = false;
         } else if ("Four".equals(e.getActionCommand()) && !isClicked4) {
             lblTableFour.setBackground(Color.RED);
@@ -271,6 +272,7 @@ public class Tabledisplay extends JFrame implements ActionListener {
             lblTableFour.setOpaque(true);
             lblTableFour.setBorderPainted(false);
             System.out.println("working");
+            available--;
             isClicked4 = true;
         } else if ("Four".equals(e.getActionCommand()) && isClicked4) {
             lblTableFour.setBackground(Color.WHITE);
@@ -278,6 +280,7 @@ public class Tabledisplay extends JFrame implements ActionListener {
             lblTableFour.setOpaque(true);
             lblTableFour.setBorderPainted(false);
             System.out.println("working");
+            available++;
             isClicked4 = false;
         } else if ("Five".equals(e.getActionCommand()) && !isClicked5) {
             lblTableFive.setBackground(Color.RED);
@@ -285,6 +288,7 @@ public class Tabledisplay extends JFrame implements ActionListener {
             lblTableFive.setOpaque(true);
             lblTableFive.setBorderPainted(false);
             System.out.println("working");
+            available--;
             isClicked5 = true;
         } else if ("Five".equals(e.getActionCommand()) && isClicked5) {
             lblTableFive.setBackground(Color.WHITE);
@@ -292,6 +296,7 @@ public class Tabledisplay extends JFrame implements ActionListener {
             lblTableFive.setOpaque(true);
             lblTableFive.setBorderPainted(false);
             System.out.println("working");
+            available++;
             isClicked5 = false;
         } else if ("Six".equals(e.getActionCommand()) && !isClicked6) {
             lblTableSix.setBackground(Color.RED);
@@ -299,6 +304,7 @@ public class Tabledisplay extends JFrame implements ActionListener {
             lblTableSix.setOpaque(true);
             lblTableSix.setBorderPainted(false);
             System.out.println("working");
+            available--;
             isClicked6 = true;
         } else if ("Six".equals(e.getActionCommand()) && isClicked6) {
             lblTableSix.setBackground(Color.WHITE);
@@ -306,6 +312,7 @@ public class Tabledisplay extends JFrame implements ActionListener {
             lblTableSix.setOpaque(true);
             lblTableSix.setBorderPainted(false);
             System.out.println("working");
+            available++;
             isClicked6 = false;
         } else if ("Seven".equals(e.getActionCommand()) && !isClicked7) {
             lblTableSeven.setBackground((Color.RED));
@@ -313,6 +320,7 @@ public class Tabledisplay extends JFrame implements ActionListener {
             lblTableSeven.setOpaque(true);
             lblTableSeven.setBorderPainted(false);
             System.out.println("working");
+            available--;
             isClicked7 = true;
         } else if ("Seven".equals(e.getActionCommand()) && isClicked7) {
             lblTableSeven.setBackground((Color.WHITE));
@@ -320,6 +328,7 @@ public class Tabledisplay extends JFrame implements ActionListener {
             lblTableSeven.setOpaque(true);
             lblTableSeven.setBorderPainted(false);
             System.out.println("working");
+            available++;
             isClicked7 = false;
         } else if ("Eight".equals(e.getActionCommand()) && !isClicked8) {
             lblTableEight.setBackground((Color.RED));
@@ -327,6 +336,7 @@ public class Tabledisplay extends JFrame implements ActionListener {
             lblTableEight.setOpaque(true);
             lblTableEight.setBorderPainted(false);
             System.out.println("working");
+            available--;
             isClicked8 = true;
         } else if ("Eight".equals(e.getActionCommand()) && isClicked8) {
             lblTableEight.setBackground((Color.WHITE));
@@ -334,6 +344,7 @@ public class Tabledisplay extends JFrame implements ActionListener {
             lblTableEight.setOpaque(true);
             lblTableEight.setBorderPainted(false);
             System.out.println("working");
+            available++;
             isClicked8 = false;
         } else {
             System.out.println("boo");
