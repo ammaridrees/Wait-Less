@@ -14,15 +14,15 @@ public class StatDisplay extends JFrame {
      *
      */
     private static final long serialVersionUID = 1L;
-    private JPanel contentPane;
+    public JPanel contentPane;
     private JTable table;
-    private JFrame frame;
+    public JFrame frame;
 
     /**
      * Create the frame.
      */
     public StatDisplay() {
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setBounds(100, 100, 558, 537);
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -52,8 +52,9 @@ public class StatDisplay extends JFrame {
                 if (JOptionPane.showConfirmDialog(frame, "Are you sure you want to exit?", "Stats Screen",
                         JOptionPane.YES_NO_OPTION) == JOptionPane.YES_NO_OPTION) {
                     frame.dispose();
-                    Tabledisplay display = new Tabledisplay();
-                    Tabledisplay.main(null);
+                    frame.setVisible(false);
+                    //Tabledisplay display = new Tabledisplay();
+                    //Tabledisplay.main(null);
                 }
             }
         });

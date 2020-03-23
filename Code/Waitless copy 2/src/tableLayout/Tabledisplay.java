@@ -1,6 +1,7 @@
 package tableLayout;
 
 import net.miginfocom.swing.MigLayout;
+import statsDisplay.StatDisplay;
 
 import javax.swing.*;
 import javax.swing.GroupLayout.Alignment;
@@ -13,8 +14,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Random;
-
-import statsDisplay.StatDisplay;
 
 public class Tabledisplay extends JFrame implements ActionListener {
 
@@ -36,11 +35,21 @@ public class Tabledisplay extends JFrame implements ActionListener {
      */
     public Tabledisplay() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(100, 100, 798, 443);
+        setBounds(100, 100, 1010, 545);
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
         contentPane.setLayout(new MigLayout("", "[440px][][][grow]", "[268px,grow]"));
+
+        JButton statsButton = new JButton("StatsScreen");
+        statsButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                StatDisplay display = new StatDisplay();
+                StatDisplay.main(null);
+            }
+        });
+
+        contentPane.add(statsButton, "cell 0 0");
 
         JPanel panel = new JPanel();
         contentPane.add(panel, "cell 0 0 4 1,alignx left,aligny top");
