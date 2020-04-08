@@ -1,5 +1,7 @@
-package com.company;
+package tasksList;
 import java.lang.Math;
+
+import tasksList.Node;
 
 import static java.lang.Math.abs;
 
@@ -66,27 +68,21 @@ public class Queue
         if(head == null)
             return -1;
         Node temp = head;
-        if(temp.singleTask.getTaskID() == delete.getTaskID())
+        while(temp.next != null)
         {
-            if(temp.next == null) {
-                head = null;
-                return 1;
-            }
-            head = head.next;
-        }
-        else {
-            while (temp.next != null) {
-                if (temp.next.singleTask.getTaskID() == delete.getTaskID()) {
-                    if (temp.next == head.tail) {
-                        head.tail = temp;
-                        head.tail.next = null;
-                    } else
-                        temp.next = temp.next.next;
-                    return count;
+            if(temp.next.singleTask.getTaskID() == delete.getTaskID())
+            {
+                if(temp.next == head.tail)
+                {
+                    head.tail = temp;
+                    head.tail.next = null;
                 }
-                temp = temp.next;
-                count++;
+                else
+                    temp.next = temp.next.next;
+                return count;
             }
+            temp = temp.next;
+            count++;
         }
         return -1;
     }
