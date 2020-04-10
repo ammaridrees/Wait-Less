@@ -2,6 +2,7 @@ package tableLayout;
 
 import net.miginfocom.swing.MigLayout;
 import statsDisplay.StatDisplay;
+import tasksList.Main;
 
 import javax.swing.*;
 import javax.swing.GroupLayout.Alignment;
@@ -49,7 +50,16 @@ public class Tabledisplay extends JFrame implements ActionListener {
             }
         });
 
+        JButton tasksButton = new JButton("Tasks");
+        tasksButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                Main display = new Main();
+                Main.main(null);
+            }
+        });
+
         contentPane.add(statsButton, "cell 0 0");
+        contentPane.add(tasksButton, "flowx, cell 0 0");
 
         JPanel panel = new JPanel();
         contentPane.add(panel, "cell 0 0 4 1,alignx left,aligny top");

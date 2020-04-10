@@ -4,9 +4,8 @@ import tableLayout.Tabledisplay;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import javax.swing.border.TitledBorder;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class StatDisplay extends JFrame {
 
@@ -23,17 +22,20 @@ public class StatDisplay extends JFrame {
      */
     public StatDisplay() {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setBounds(100, 100, 558, 537);
+        setBounds(100, 100, 558, 275);
+        setBackground(Color.LIGHT_GRAY);
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         contentPane.setLayout(new BorderLayout(0, 0));
+        contentPane.setOpaque(false);
+        contentPane.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), "STATISTICS", TitledBorder.CENTER, TitledBorder.TOP));
         setContentPane(contentPane);
 
-        Object[][] rowData = {{"Tasks to Complete", "4"},
+        Object[][] rowData = {
                 {"Tables Occupied", 8 - Tabledisplay.getAvailable()},
                 {"Tables Open", Tabledisplay.getAvailable()},
                 {"Customers Waiting", "0"},
-                {"Average Wait time", "0 minutes"}};
+                {"Average Wait time", Integer.toString(waitTime.waiting()) + " minutes"}};
 
         Object[] columnNames = {"Column One", "Column Two"};
 
@@ -41,25 +43,13 @@ public class StatDisplay extends JFrame {
 
         table.setColumnSelectionAllowed(true);
         table.setCellSelectionEnabled(true);
-        table.setRowHeight(30);
+        table.setRowHeight(50);
+        table.getAutoResizeMode();
+        table.setBackground(Color.WHITE);
+        table.setFont(new Font("Serif", Font.BOLD, 20));
+
 
         contentPane.add(table, BorderLayout.CENTER);
-
-        JButton btnExit = new JButton("Exit");
-        btnExit.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                frame = new JFrame("Exit");
-                if (JOptionPane.showConfirmDialog(frame, "Are you sure you want to exit?", "Stats Screen",
-                        JOptionPane.YES_NO_OPTION) == JOptionPane.YES_NO_OPTION) {
-                    frame.dispose();
-                    frame.setVisible(false);
-                    //Tabledisplay display = new Tabledisplay();
-                    //Tabledisplay.main(null);
-                }
-            }
-        });
-        contentPane.add(btnExit, BorderLayout.SOUTH);
-        btnExit.setPreferredSize(new Dimension(20, 40));
     }
 
     /**
@@ -71,6 +61,7 @@ public class StatDisplay extends JFrame {
                 try {
                     StatDisplay frame = new StatDisplay();
                     frame.setVisible(true);
+                    UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

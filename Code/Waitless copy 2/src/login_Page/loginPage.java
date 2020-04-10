@@ -50,7 +50,7 @@ public class loginPage {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().setLayout(null);
 
-        JLabel lblNewLabel = new JLabel("Restraunt Name: Login Page");
+        JLabel lblNewLabel = new JLabel("Restaurant Name: Login Page");
         lblNewLabel.setBounds(165, 16, 262, 16);
         frame.getContentPane().add(lblNewLabel);
 
@@ -63,7 +63,7 @@ public class loginPage {
         frame.getContentPane().add(passwordTxt);
 
         usernameEntry = new JTextField();
-        usernameEntry.setBounds(182, 83, 195, 32);
+        usernameEntry.setBounds(182, 88, 213, 26);
         frame.getContentPane().add(usernameEntry);
         usernameEntry.setColumns(10);
 
