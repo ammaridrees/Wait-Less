@@ -1,8 +1,10 @@
 package tableLayout;
 
+import javafx.scene.image.Image;
 import net.miginfocom.swing.MigLayout;
 import statsDisplay.StatDisplay;
 import tasksList.Main;
+import tasksList.User;
 
 import javax.swing.*;
 import javax.swing.GroupLayout.Alignment;
@@ -26,11 +28,10 @@ public class Tabledisplay extends JFrame implements ActionListener {
     protected JButton lblTableOne, lblTableTwo, lblTableThree, lblTableFour, lblTableFive, lblTableSix, lblTableSeven, lblTableEight;
     private JPanel contentPane;
     private static int available = 8;
-
+    public static User newUser = new User("Bryan");
     public static int getAvailable() {
         return available;
     }
-
     /**
      * Create the frame.
      */

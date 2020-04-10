@@ -5,14 +5,18 @@ import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.image.Image;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import tableLayout.Tabledisplay;
@@ -32,6 +36,9 @@ public class Main extends Application {
     private VBox mainVBox;
     private HBox ButtonsBox;
     public Stage mainStage;
+    public Text titleText;
+    public Image background;
+
     private BorderPane mainLayout;
     public static void main(String[] args) {
 
@@ -48,7 +55,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-
+        background = new Image("/TaskBackground.png");
         mainStage = primaryStage;
         mainStage.setTitle("Task List");
         TaskListScene = makeScene();
@@ -57,7 +64,6 @@ public class Main extends Application {
         mainStage.show();
         primaryStage.setOnCloseRequest(t -> {
             Platform.exit();
-           // System.exit(0);
         });
 
         this.createTask.setOnAction(new EventHandler<ActionEvent>() {
@@ -114,7 +120,10 @@ public class Main extends Application {
         //newUser.userQueue.add(newTask2);
         //newUser.userQueue.add(newTask3);
         //newUser.userQueue.add(newTask4);
-
+        mainLayout = new BorderPane();
+        titleText = new Text(Tabledisplay.newUser.getUserName() + "'s Task List");
+        titleText.setFont(Font.font("Tahoma", FontWeight.BOLD, 45));
+        titleText.setFill(Color.ANTIQUEWHITE);
         TaskList = new ListView<String>();
         Tabledisplay.newUser.userQueue.printQueue();
         Node temp = Tabledisplay.newUser.userQueue.head;
@@ -124,16 +133,27 @@ public class Main extends Application {
         }
         //TaskList.getItems().add(Integer.toString(newUser.userQueue.getLength()));
         TaskList.setEditable(false);
+       // TaskList.setPrefSize(200,200);
+        //TaskList.setPadding(new Insets(5,1,10,10));
+        TaskList.setMaxWidth(450);
         createUserTask = new TextField();
         TableNumber = new TextField();
         createTask = new Button("New Task");
+        createTask.setFont(Font.font("tahoma",FontWeight.BOLD,15));
         deleteTask = new Button("Delete");
+        deleteTask.setFont(Font.font("tahoma",FontWeight.BOLD,15));
         ButtonsBox = new HBox(10);
+        TableNumber.setPromptText("Table #");
+        createUserTask.setPromptText("Task");
         ButtonsBox.getChildren().addAll(createTask,TableNumber,createUserTask, deleteTask);
-        mainVBox = new VBox(20);
-        mainVBox.getChildren().addAll(TaskList, ButtonsBox);
+        mainVBox = new VBox(50);
+        mainVBox.getChildren().addAll(titleText,TaskList, ButtonsBox);
         mainVBox.setAlignment(Pos.CENTER);
-        return new Scene(mainVBox, 600, 600);
+        mainLayout.setCenter(mainVBox);
+        BackgroundSize bgSize = new BackgroundSize(700, 700, false, false, false, false);
+        BackgroundImage bgImage = new BackgroundImage(background, null, null, BackgroundPosition.CENTER, bgSize);
+        mainLayout.setBackground(new Background(bgImage));
+        return new Scene(mainLayout, 600, 600);
 
     }
 }
