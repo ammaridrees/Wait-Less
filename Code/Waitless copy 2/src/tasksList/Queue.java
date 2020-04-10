@@ -4,7 +4,7 @@ import static java.lang.Math.abs;
 
 public class Queue {
     Node head;
-    private int length;
+    public int length;
 
     Queue() {
         head = null;
@@ -54,20 +54,30 @@ public class Queue {
 
     public int dequeue(Task delete) {
         int count = 0;
-        if (head == null)
+        if(head == null)
             return -1;
         Node temp = head;
-        while (temp.next != null) {
-            if (temp.next.singleTask.getTaskID() == delete.getTaskID()) {
-                if (temp.next == head.tail) {
-                    head.tail = temp;
-                    head.tail.next = null;
-                } else
-                    temp.next = temp.next.next;
-                return count;
+        if(temp.singleTask.getTaskID() == delete.getTaskID())
+        {
+            if(temp.next == null) {
+                head = null;
+                return 1;
             }
-            temp = temp.next;
-            count++;
+            head = head.next;
+        }
+        else {
+            while (temp.next != null) {
+                if (temp.next.singleTask.getTaskID() == delete.getTaskID()) {
+                    if (temp.next == head.tail) {
+                        head.tail = temp;
+                        head.tail.next = null;
+                    } else
+                        temp.next = temp.next.next;
+                    return count;
+                }
+                temp = temp.next;
+                count++;
+            }
         }
         return -1;
     }

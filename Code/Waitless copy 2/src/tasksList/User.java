@@ -7,7 +7,7 @@ public class User {
     private String userPosition;
     private String userName;
 
-    User(String name) {
+    public User(String name) {
         userQueue = new Queue();
         userID = countUsers;
         countUsers++;
@@ -15,7 +15,7 @@ public class User {
         userPosition = "Waiter";
     }
 
-    User(Task newTask, String name) {
+    public User(Task newTask, String name) {
         userQueue = new Queue(newTask);
         userID = countUsers;
         countUsers++;
