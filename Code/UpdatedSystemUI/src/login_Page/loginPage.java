@@ -80,7 +80,7 @@ public class loginPage {
 				String username = usernameEntry.getText();
 				String password = passwordEntry.getText();
 				
-				if(username.contains("mahmed76") && password.contains("chiefddot"))
+				if(username.contains("admin") && password.contains("password"))
 				{
 					usernameEntry.setText(null);
 					passwordEntry.setText(null);
