@@ -22,7 +22,7 @@ public void setOccupied(boolean isOccupied) {
    public String partyMembers[];
    private int totalCost;
    private int partyNumber;
-   public Restaurant T1, T2, T3, T4, T5, T6;
+   //public Restaurant T1, T2, T3, T4, T5, T6;
    public PriorityQueue<Restaurant> pQueue = new PriorityQueue<Restaurant>();
    private List<Restaurant> getallUsers;
    List<Restaurant> users = getallUsers;
@@ -32,11 +32,11 @@ public void setOccupied(boolean isOccupied) {
 	   //T3 = new Restaurant();
 	   //T4 = new Restaurant();
    }
-public Restaurant[] getallUsers() {
-	Restaurant[] array = new Restaurant[] {T1,T2,T3,T4,T5,T6};
+//public Restaurant[] getallUsers() {
+	//Restaurant[] array = new Restaurant[] {T1,T2,T3,T4,T5,T6};
     // Fill array
-    return array;
-}
+    //return array;
+//}
 public int getPartyNumber() {
 	return partyNumber;
 }
