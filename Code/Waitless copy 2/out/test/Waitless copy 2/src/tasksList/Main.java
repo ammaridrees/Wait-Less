@@ -31,7 +31,7 @@ public class Main extends Application {
     TaskController controller = new TaskController();
     //User newUser = Tabledisplay.getUser();
     private Scene TaskListScene;
-    private Button sendTask, moveTop, move, deleteTask, createTask,update;
+    private Button sendTask, moveTop, move, deleteTask, createTask;
     private TextField sendTaskText, moveText, createUserTask, TableNumber;
     private VBox mainVBox;
     private HBox ButtonsBox;
@@ -74,13 +74,7 @@ public class Main extends Application {
                 Node temp = Tabledisplay.newUser.userQueue.head;
                 //  while(temp != null)
                 //  {
-               // TaskList.getItems().add(temp.tail.singleTask.getTaskCreator());
-                TaskList.getItems().clear();
-                while(temp != null)
-                {
-                    TaskList.getItems().add(temp.singleTask.getTaskCreator());
-                    temp = temp.next;
-                }
+                TaskList.getItems().add(temp.tail.singleTask.getTaskCreator());
                 //     temp = temp.next;
                 //   }
             }
@@ -93,21 +87,20 @@ public class Main extends Application {
 
                 if(temp != null && TaskList.getSelectionModel().isEmpty())
                 {
+                    System.out.println("hi");
                     controller.deleteTask(Tabledisplay.newUser);//,Tabledisplay.newUser.userQueue.head.singleTask);
                     temp = temp.next;
                 }
                     //if (temp != null && temp.singleTask.getTaskCreator().equals(TaskList.getSelectionModel().getSelectedItem())) {
                       //  controller.deleteTask(newUser, newUser.userQueue.head.singleTask);
                    // }
-                else {
-                    while (temp != null) {
+                    while (temp != null && !TaskList.getSelectionModel().isEmpty()) {
                         if (temp.singleTask.getTaskCreator().equals(TaskList.getSelectionModel().getSelectedItem())) {
                             controller.deleteTask(Tabledisplay.newUser, temp.singleTask);
                             break;
                         }
                         temp = temp.next;
                     }
-                }
 
 
                 Node temp2 = Tabledisplay.newUser.userQueue.head;
@@ -118,19 +111,6 @@ public class Main extends Application {
                     temp2 = temp2.next;
                 }
                 Tabledisplay.newUser.userQueue.printQueue();
-            }
-        });
-
-        this.update.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                Node temp = Tabledisplay.newUser.userQueue.head;
-                TaskList.getItems().clear();
-                while(temp != null)
-                {
-                    TaskList.getItems().add(temp.singleTask.getTaskCreator());
-                    temp = temp.next;
-                }
             }
         });
     }
@@ -159,8 +139,6 @@ public class Main extends Application {
         createUserTask = new TextField();
         TableNumber = new TextField();
         createTask = new Button("New Task");
-        update = new Button("Update");
-        update.setFont(Font.font("tahoma",FontWeight.BOLD,15));
         createTask.setFont(Font.font("tahoma",FontWeight.BOLD,15));
         deleteTask = new Button("Delete");
         deleteTask.setFont(Font.font("tahoma",FontWeight.BOLD,15));
@@ -168,8 +146,8 @@ public class Main extends Application {
         TableNumber.setPromptText("Table #");
         createUserTask.setPromptText("Task");
         ButtonsBox.getChildren().addAll(createTask,TableNumber,createUserTask, deleteTask);
-        mainVBox = new VBox(20);
-        mainVBox.getChildren().addAll(titleText,update,TaskList, ButtonsBox);
+        mainVBox = new VBox(50);
+        mainVBox.getChildren().addAll(titleText,TaskList, ButtonsBox);
         mainVBox.setAlignment(Pos.CENTER);
         mainLayout.setCenter(mainVBox);
         BackgroundSize bgSize = new BackgroundSize(700, 700, false, false, false, false);
