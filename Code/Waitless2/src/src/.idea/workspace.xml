@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="49ac8893-d277-4ff2-a275-2eb6d8fcb90e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../Waitless copy 2/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Waitless copy 2/src/statsDisplay/StatDisplay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Waitless copy 2/out/production/Waitless copy 2/login_Page/loginPage$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Waitless copy 2/out/production/Waitless copy 2/login_Page/loginPage$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Waitless copy 2/out/production/Waitless copy 2/login_Page/loginPage$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Waitless copy 2/out/production/Waitless copy 2/login_Page/loginPage$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Waitless copy 2/out/production/Waitless copy 2/login_Page/loginPage$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Waitless copy 2/out/production/Waitless copy 2/login_Page/loginPage$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Waitless copy 2/out/production/Waitless copy 2/login_Page/loginPage$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Waitless copy 2/out/production/Waitless copy 2/login_Page/loginPage$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Waitless copy 2/out/production/Waitless copy 2/login_Page/loginPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Waitless copy 2/out/production/Waitless copy 2/login_Page/loginPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Waitless copy 2/out/production/Waitless copy 2/tableLayout/Tabledisplay$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Waitless copy 2/out/production/Waitless copy 2/tableLayout/Tabledisplay$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Waitless copy 2/out/production/Waitless copy 2/tableLayout/Tabledisplay.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Waitless copy 2/out/production/Waitless copy 2/tableLayout/Tabledisplay.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Waitless copy 2/src/login_Page/loginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Waitless copy 2/src/login_Page/loginPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Waitless copy 2/src/tableLayout/Tabledisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Waitless copy 2/src/tableLayout/Tabledisplay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login_Page/loginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/login_Page/loginPage.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="ProjectId" id="1ZPGLxZDPtwtLIc2KibPKOsEwlw" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="49ac8893-d277-4ff2-a275-2eb6d8fcb90e" name="Default Changelist" comment="" />
+      <created>1584733263968</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1584733263968</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584733293127">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1584733293127" />
+    <state x="618" y="301" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1584733275904">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="618" y="301" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1536.824@0.0.1536.824" timestamp="1584733275904" />
+  </component>
+</project>

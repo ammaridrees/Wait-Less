@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="efc3a72f-d210-4896-b703-aa5d3eebc36c" name="Default Changelist" comment="" />
+    <list default="true" id="efc3a72f-d210-4896-b703-aa5d3eebc36c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../Waitless copy 2/out/production/Waitless copy 2/tableLayout/Tabledisplay$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Waitless copy 2/out/production/Waitless copy 2/tableLayout/Tabledisplay$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Waitless copy 2/out/production/Waitless copy 2/tableLayout/Tabledisplay$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Waitless copy 2/out/production/Waitless copy 2/tableLayout/Tabledisplay$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Waitless copy 2/out/production/Waitless copy 2/tableLayout/Tabledisplay.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Waitless copy 2/out/production/Waitless copy 2/tableLayout/Tabledisplay.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Waitless copy 2/src/tableLayout/Tabledisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Waitless copy 2/src/tableLayout/Tabledisplay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/login_Page/loginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/login_Page/loginPage.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,6 +27,16 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Waitless copy 2" />
+    <property name="settings.editor.selected.configurable" value="terminal" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="loginPage" />
+      <module name="Waitless2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -35,21 +52,61 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="549" y="130" key="FileChooserDialogImpl" timestamp="1584650455883">
+    <state x="103" y="135" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584732370137">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="130" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1584650455883" />
+    <state x="103" y="135" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1584732370137" />
+    <state x="529" y="212" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1584732341993">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="529" y="212" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.824@0.0.1536.824" timestamp="1584732341993" />
+    <state x="618" y="301" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1584732231296">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="618" y="301" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1536.824@0.0.1536.824" timestamp="1584732231296" />
+    <state x="333" y="7" key="CommitChangelistDialog2" timestamp="1585079079657">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="333" y="7" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1585079079657" />
+    <state x="549" y="130" key="FileChooserDialogImpl" timestamp="1586120231476">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="130" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1586120231476" />
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1584732389818">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1584732389818" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1584732389817">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1584732389817" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1584732389817">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1584732389817" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1584732389818">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1584732389818" />
     <state x="439" y="111" width="731" height="601" key="NewModule_or_Project.wizard" timestamp="1584650420036">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="439" y="111" width="731" height="601" key="NewModule_or_Project.wizard/0.0.1536.824@0.0.1536.824" timestamp="1584650420036" />
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1584650395169">
+    <state x="-164" y="110" key="SettingsEditor" timestamp="1585079195922">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1584650395169" />
-    <state x="209" y="33" key="new project wizard" timestamp="1584650403495">
+    <state x="-164" y="110" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1585079195922" />
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1586120193575">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="209" y="33" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1584650403495" />
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1586120193575" />
+    <state x="209" y="33" key="new project wizard" timestamp="1584733231734">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="209" y="33" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1584733231734" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1585079072178">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1585079072178" />
   </component>
 </project>
