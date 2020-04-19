@@ -12,7 +12,7 @@ public class Task {
        count++;
        taskCreator = "No Name";
     }
-    Task(String name)
+    public Task(String name)
     {
         taskID = count;
         count++;

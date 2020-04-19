@@ -11,7 +11,8 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.ImageIcon;
 
-import net.miginfocom.swing.MigLayout;
+//import net.miginfocom.swing.MigLayout;
+import javafx.scene.control.Tab;
 import statsDisplay.StatDisplay;
 
 import java.awt.Color;
@@ -33,7 +34,11 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.util.PriorityQueue;
 import java.awt.event.ActionEvent;
+import java.util.Timer;
+import java.util.TimerTask;
+
 import tasksList.Main;
+import tasksList.Task;
 import tasksList.User;
 
 
@@ -67,8 +72,7 @@ public class Tabledisplay extends JFrame implements ActionListener{
 	    protected JButton tbl1Button1, tblButton2, tbl3Button, tbl4Button, tbl5Button, button_5, tblButton7, tblButton8;
 	    private static int available = 6;
 	    public static User newUser = new User("Bryan");
-	    
-
+	    Check Timer1,Timer2,Timer3,Timer4,Timer5,Timer6;
 	    public static int getAvailable() {
 	        return available;
 	    }
@@ -85,7 +89,6 @@ public class Tabledisplay extends JFrame implements ActionListener{
 			contentPane.setBackground(new Color(148, 0, 211));
 			setContentPane(contentPane);
 			contentPane.setLayout(null);
-			
 			JPanel paneSidebar = new JPanel();
 			paneSidebar.setBackground(new Color(153, 50, 204));
 			paneSidebar.setBounds(0, 0, 278, 551);
@@ -131,9 +134,16 @@ public class Tabledisplay extends JFrame implements ActionListener{
 			JButton tasksButton = new JButton("TASKS LIST");
 			  tasksButton.setBackground(new Color(148, 0, 211));
 			  tasksButton.addActionListener(new ActionListener() {
+
 			   public void actionPerformed(ActionEvent e) {
-			    Main display = new Main();
-			    Main.main(null);
+				   Thread thread = new Thread(){
+					   public void run(){
+						   Main display = new Main();
+						   Main.main(null);
+					   }
+				   };
+
+				   thread.start();
 			   }
 			  });
 			tasksButton.setBounds(113, 6, 152, 72);
@@ -292,43 +302,45 @@ public class Tabledisplay extends JFrame implements ActionListener{
 		 public void actionPerformed(ActionEvent e) {
 		        // TODO Auto-generated method stub
 		        if ("One".equals(e.getActionCommand()) && !isClicked1) {
-
+					Timer1 = new Check(120,"1");
 		        	tbl1Button1.setBackground(Color.RED);
 		        	tbl1Button1.setOpaque(true);
 		        	tbl1Button1.setBorderPainted(false);
 		            System.out.println("working");
 		            available--;
 		            isClicked1 = true;
+
 		        }
 				else if ("One".equals(e.getActionCommand()) && isClicked1) {
-
+					Timer1.timer.cancel();
 					tbl1Button1.setBackground(Color.LIGHT_GRAY);
 					tbl1Button1.setOpaque(true);
 					tbl1Button1.setBorderPainted(false);
 					System.out.println("working");
 					available++;
 					isClicked1 = false;
+
 				}
 				else if ("Two".equals(e.getActionCommand()) && !isClicked2) {
-
-				tblButton2.setBackground(Color.RED);
-				tblButton2.setOpaque(true);
-				tblButton2.setBorderPainted(false);
-				System.out.println("working");
-				available--;
-				isClicked2 = true;
+					Timer2 = new Check(60,"2");
+					tblButton2.setBackground(Color.RED);
+					tblButton2.setOpaque(true);
+					tblButton2.setBorderPainted(false);
+					System.out.println("working");
+					available--;
+					isClicked2 = true;
 				}
 				else if ("Two".equals(e.getActionCommand()) && isClicked2) {
-
-				tblButton2.setBackground(Color.LIGHT_GRAY);
-				tblButton2.setOpaque(true);
-				tblButton2.setBorderPainted(false);
-				System.out.println("working");
-				available++;
-				isClicked2 = false;
+					Timer2.timer.cancel();
+					tblButton2.setBackground(Color.LIGHT_GRAY);
+					tblButton2.setOpaque(true);
+					tblButton2.setBorderPainted(false);
+					System.out.println("working");
+					available++;
+					isClicked2 = false;
 				}
 				else if ("Three".equals(e.getActionCommand()) && !isClicked3) {
-
+					Timer3 = new Check(60,"3");
 					tbl3Button.setBackground(Color.RED);
 					tbl3Button.setOpaque(true);
 					tbl3Button.setBorderPainted(false);
@@ -337,7 +349,7 @@ public class Tabledisplay extends JFrame implements ActionListener{
 					isClicked3 = true;
 				}
 				else if ("Three".equals(e.getActionCommand()) && isClicked3) {
-
+					Timer3.timer.cancel();
 					tbl3Button.setBackground(Color.LIGHT_GRAY);
 					tbl3Button.setOpaque(true);
 					tbl3Button.setBorderPainted(false);
@@ -346,7 +358,7 @@ public class Tabledisplay extends JFrame implements ActionListener{
 					isClicked3 = false;
 				}
 				else if ("Four".equals(e.getActionCommand()) && !isClicked4) {
-
+					Timer4 = new Check(180,"4");
 					tbl4Button.setBackground(Color.RED);
 					tbl4Button.setOpaque(true);
 					tbl4Button.setBorderPainted(false);
@@ -355,7 +367,7 @@ public class Tabledisplay extends JFrame implements ActionListener{
 					isClicked4 = true;
 				}
 				else if ("Four".equals(e.getActionCommand()) && isClicked4) {
-
+					Timer4.timer.cancel();
 					tbl4Button.setBackground(Color.LIGHT_GRAY);
 					tbl4Button.setOpaque(true);
 					tbl4Button.setBorderPainted(false);
@@ -364,7 +376,7 @@ public class Tabledisplay extends JFrame implements ActionListener{
 					isClicked4 = false;
 				}
 				else if ("Five".equals(e.getActionCommand()) && !isClicked5) {
-
+					Timer5 = new Check(60,"5");
 					tbl5Button.setBackground(Color.RED);
 					tbl5Button.setOpaque(true);
 					tbl5Button.setBorderPainted(false);
@@ -373,7 +385,7 @@ public class Tabledisplay extends JFrame implements ActionListener{
 					isClicked5 = true;
 				}
 				else if ("Five".equals(e.getActionCommand()) && isClicked5) {
-
+					Timer5.timer.cancel();
 					tbl5Button.setBackground(Color.LIGHT_GRAY);
 					tbl5Button.setOpaque(true);
 					tbl5Button.setBorderPainted(false);
@@ -382,7 +394,7 @@ public class Tabledisplay extends JFrame implements ActionListener{
 					isClicked5 = false;
 				}
 				else if ("Six".equals(e.getActionCommand()) && !isClicked6) {
-
+					Timer6 = new Check(90,"6");
 					button_5.setBackground(Color.RED);
 					button_5.setOpaque(true);
 					button_5.setBorderPainted(false);
@@ -391,7 +403,7 @@ public class Tabledisplay extends JFrame implements ActionListener{
 					isClicked6 = true;
 				}
 				else if ("Six".equals(e.getActionCommand()) && isClicked6) {
-
+					Timer6.timer.cancel();
 					button_5.setBackground(Color.LIGHT_GRAY);
 					button_5.setOpaque(true);
 					button_5.setBorderPainted(false);
@@ -400,4 +412,26 @@ public class Tabledisplay extends JFrame implements ActionListener{
 					isClicked6 = false;
 				}
 		 }
+
+	class Check {
+		Timer timer;
+		public String tableN;
+		public int second;
+		public Check(int seconds, String tableNum) {
+			timer = new Timer();
+			timer.schedule(new CheckTable(), seconds * 1000);
+			System.out.println("not working");
+			tableN = tableNum;
+			second = seconds;
+		}
+		class CheckTable extends TimerTask {
+
+			public void run() {
+				System.out.println("Check Table!");
+				timer.cancel(); //Terminate the timer thread
+				newUser.userQueue.add(new Task("Check Table" + tableN + "! Time is up"));
+				new Check(second,tableN);
+			}
+		}
+	}
 	}
