@@ -1,5 +1,6 @@
 package tableLayout;
 
+import javafx.scene.image.Image;
 import net.miginfocom.swing.MigLayout;
 import statsDisplay.StatDisplay;
 import tasksList.Main;
