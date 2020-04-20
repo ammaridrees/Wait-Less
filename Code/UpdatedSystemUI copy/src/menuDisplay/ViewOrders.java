@@ -25,9 +25,12 @@ public class ViewOrders extends Loader{
    protected DefaultListModel<String> lister = new DefaultListModel<>();
    protected DefaultListModel<String> lister1 = new DefaultListModel<>();
    protected DefaultListModel<String> lister2 = new DefaultListModel<>();
+   protected DefaultListModel<String> lister3= new DefaultListModel<>();
+   protected DefaultListModel<String> lister4 = new DefaultListModel<>();
+   protected DefaultListModel<String> lister5 = new DefaultListModel<>();
    Menu mm = new Menu();
 
-   protected JList listy1, listy2, listy3;
+   protected JList listy1, listy2, listy3,listy4,listy5,listy6;
    protected JTextField tf2;
 
    private JLabel headerLabel;
@@ -50,17 +53,28 @@ public class ViewOrders extends Loader{
  	    jp.setBounds(900,80,200,200);
 
  	   lister.addElement("Table 1 Orders");
- 	  lister1.addElement("Table 2 Orders");
- 	 lister2.addElement("Table 3 Orders");
+ 	   lister1.addElement("Table 2 Orders");
+ 	   lister2.addElement("Table 3 Orders");
+ 	  lister3.addElement("Table 4 Orders");
+ 	 lister4.addElement("Table 5 Orders");
+ 	lister5.addElement("Table 6 Orders");
  	    listy1 = new JList<>(lister);
  	    listy2 = new JList<>(lister1);
  	    listy3 = new JList<>(lister2);
+ 	    listy4 = new JList<>(lister3);
+ 	    listy5 = new JList<>(lister4);
+ 	    listy6 = new JList<>(lister5);
 
 
 
 
- 	   Loader.T1.items.forEach((n) -> lister.addElement(n));
- 	  Loader.T2.items.forEach((n) -> lister1.addElement(n));
+ 	  Loader.T1.items.forEach((n) -> lister.addElement(n));
+ 	  Loader.T2.items1.forEach((n) -> lister1.addElement(n));
+ 	  Loader.T3.items2.forEach((n) -> lister2.addElement(n));
+ 	  Loader.T4.items3.forEach((n) -> lister3.addElement(n));
+ 	  Loader.T5.items4.forEach((n) -> lister4.addElement(n));
+ 	  Loader.T6.items5.forEach((n) -> lister5.addElement(n));
+
 
 
 
@@ -69,6 +83,9 @@ public class ViewOrders extends Loader{
        jp.add(listy1);
        jp.add(listy2);
        jp.add(listy3);
+       jp.add(listy4);
+       jp.add(listy5);
+       jp.add(listy6);
 
 
        jp.setSize(800,800);

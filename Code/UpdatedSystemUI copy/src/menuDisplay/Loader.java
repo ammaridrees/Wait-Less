@@ -178,23 +178,23 @@ public void actionPerformed(ActionEvent e) {
         }
         if(counter.equals("T2")) {
         	T2.setTotalCost(T2.getTotalCost()+MenuItems.get("Salmon"));
-        	T2.items.add("Salmon");
+        	T2.items1.add("Salmon");
         }
         if(counter.equals("T3")) {
         	T3.setTotalCost(T3.getTotalCost()+MenuItems.get("Salmon"));
-        	T3.items.add("Salmon");
+        	T3.items2.add("Salmon");
         }
         if(counter.equals("T4")) {
         	T4.setTotalCost(T4.getTotalCost()+MenuItems.get("Salmon"));
-        	T4.items.add("Salmon");
+        	T4.items3.add("Salmon");
         }
         if(counter.equals("T5")) {
         	T5.setTotalCost(T5.getTotalCost()+MenuItems.get("Salmon"));
-        	T5.items.add("Salmon");
+        	T5.items4.add("Salmon");
         }
         if(counter.equals("T6")) {
         	T6.setTotalCost(T6.getTotalCost()+MenuItems.get("Salmon"));
-        	T6.items.add("Salmon");
+        	T6.items5.add("Salmon");
         }
         else {
         	System.out.println("no");
@@ -213,23 +213,23 @@ public void actionPerformed(ActionEvent e) {
         }
         if(counter.equals("T2")) {
         	T2.setTotalCost(T2.getTotalCost()+MenuItems.get("Lasagna"));
-        	T2.items.add("Lasagna");
+        	T2.items1.add("Lasagna");
         }
         if(counter.equals("T3")) {
         	T3.setTotalCost(T3.getTotalCost()+MenuItems.get("Lasagna"));
-        	T3.items.add("Lasagna");
+        	T3.items2.add("Lasagna");
         }
         if(counter.equals("T4")) {
         	T4.setTotalCost(T4.getTotalCost()+MenuItems.get("Lasagna"));
-        	T4.items.add("Lasagna");
+        	T4.items3.add("Lasagna");
         }
         if(counter.equals("T5")) {
         	T5.setTotalCost(T5.getTotalCost()+MenuItems.get("Lasagna"));
-        	T5.items.add("Lasagna");
+        	T5.items4.add("Lasagna");
         }
         if(counter.equals("T6")) {
         	T6.setTotalCost(T6.getTotalCost()+MenuItems.get("Lasagna"));
-        	T6.items.add("Lasagna");
+        	T6.items5.add("Lasagna");
         }
         else {
         	System.out.println("no");
@@ -248,23 +248,23 @@ public void actionPerformed(ActionEvent e) {
         }
         if(counter.equals("T2")) {
         	T2.setTotalCost(T2.getTotalCost()+MenuItems.get("Pizza"));
-        	T2.items.add("Pizza");
+        	T2.items1.add("Pizza");
         }
         if(counter.equals("T3")) {
         	T3.setTotalCost(T3.getTotalCost()+MenuItems.get("Pizza"));
-        	T3.items.add("Pizza");
+        	T3.items2.add("Pizza");
         }
         if(counter.equals("T4")) {
         	T4.setTotalCost(T4.getTotalCost()+MenuItems.get("Pizza"));
-        	T4.items.add("Pizza");
+        	T4.items3.add("Pizza");
         }
         if(counter.equals("T5")) {
         	T5.setTotalCost(T5.getTotalCost()+MenuItems.get("Pizza"));
-        	T5.items.add("Pizza");
+        	T5.items4.add("Pizza");
         }
         if(counter.equals("T6")) {
         	T6.setTotalCost(T6.getTotalCost()+MenuItems.get("Pizza"));
-        	T6.items.add("Pizza");
+        	T6.items5.add("Pizza");
         }
         else {
         	System.out.println("no");
@@ -282,23 +282,23 @@ public void actionPerformed(ActionEvent e) {
         }
         if(counter.equals("T2")) {
         	T2.setTotalCost(T2.getTotalCost()+MenuItems.get("Steak"));
-        	T2.items.add("Steak");
+        	T2.items1.add("Steak");
         }
         if(counter.equals("T3")) {
         	T3.setTotalCost(T3.getTotalCost()+MenuItems.get("Steak"));
-        	T3.items.add("Steak");
+        	T3.items2.add("Steak");
         }
         if(counter.equals("T4")) {
         	T4.setTotalCost(T4.getTotalCost()+MenuItems.get("Steak"));
-        	T4.items.add("Steak");
+        	T4.items3.add("Steak");
         }
         if(counter.equals("T5")) {
         	T5.setTotalCost(T5.getTotalCost()+MenuItems.get("Steak"));
-        	T5.items.add("Steak");
+        	T5.items4.add("Steak");
         }
         if(counter.equals("T6")) {
         	T6.setTotalCost(T6.getTotalCost()+MenuItems.get("Steak"));
-        	T6.items.add("Steak");
+        	T6.items5.add("Steak");
         }
         else {
         	System.out.println("no");
@@ -317,23 +317,23 @@ public void actionPerformed(ActionEvent e) {
         }
         if(counter.equals("T2")) {
         	T2.setTotalCost(T2.getTotalCost()+MenuItems.get("Donut"));
-        	T2.items.add("Donut");
+        	T2.items1.add("Donut");
         }
         if(counter.equals("T3")) {
         	T3.setTotalCost(T3.getTotalCost()+MenuItems.get("Donut"));
-        	T3.items.add("Donut");
+        	T3.items2.add("Donut");
         }
         if(counter.equals("T4")) {
         	T4.setTotalCost(T4.getTotalCost()+MenuItems.get("Donut"));
-        	T4.items.add("Donut");
+        	T4.items3.add("Donut");
         }
         if(counter.equals("T5")) {
         	T5.setTotalCost(T5.getTotalCost()+MenuItems.get("Donut"));
-        	T5.items.add("Donut");
+        	T5.items4.add("Donut");
         }
         if(counter.equals("T6")) {
         	T6.setTotalCost(T6.getTotalCost()+MenuItems.get("Donut"));
-        	T6.items.add("Donut");
+        	T6.items5.add("Donut");
         }
         else {
         	System.out.println("no");
@@ -351,23 +351,23 @@ public void actionPerformed(ActionEvent e) {
         }
         if(counter.equals("T2")) {
         	T2.setTotalCost(T2.getTotalCost()+MenuItems.get("Ice Cream"));
-        	T2.items.add("Ice Cream");
+        	T2.items1.add("Ice Cream");
         }
         if(counter.equals("T3")) {
         	T3.setTotalCost(T3.getTotalCost()+MenuItems.get("Ice Cream"));
-        	T3.items.add("Ice Cream");
+        	T3.items2.add("Ice Cream");
         }
         if(counter.equals("T4")) {
         	T4.setTotalCost(T4.getTotalCost()+MenuItems.get("Ice Cream"));
-        	T4.items.add("Ice Cream");
+        	T4.items3.add("Ice Cream");
         }
         if(counter.equals("T5")) {
         	T5.setTotalCost(T5.getTotalCost()+MenuItems.get("Ice Cream"));
-        	T5.items.add("Ice Cream");
+        	T5.items4.add("Ice Cream");
         }
         if(counter.equals("T6")) {
         	T6.setTotalCost(T6.getTotalCost()+MenuItems.get("Ice Cream"));
-        	T6.items.add("Ice Cream");
+        	T6.items5.add("Ice Cream");
         }
         else {
         	System.out.println("no");
@@ -385,23 +385,23 @@ public void actionPerformed(ActionEvent e) {
         }
         if(counter.equals("T2")) {
         	T2.setTotalCost(T2.getTotalCost()+MenuItems.get("Cake"));
-        	T2.items.add("Cake");
+        	T2.items1.add("Cake");
         }
         if(counter.equals("T3")) {
         	T3.setTotalCost(T3.getTotalCost()+MenuItems.get("Cake"));
-        	T3.items.add("Cake");
+        	T3.items2.add("Cake");
         }
         if(counter.equals("T4")) {
         	T4.setTotalCost(T4.getTotalCost()+MenuItems.get("Cake"));
-        	T4.items.add("Cake");
+        	T4.items3.add("Cake");
         }
         if(counter.equals("T5")) {
         	T5.setTotalCost(T5.getTotalCost()+MenuItems.get("Cake"));
-        	T5.items.add("Cake");
+        	T5.items4.add("Cake");
         }
         if(counter.equals("T6")) {
         	T6.setTotalCost(T6.getTotalCost()+MenuItems.get("Cake"));
-        	T6.items.add("Cake");
+        	T6.items5.add("Cake");
         }
         else {
         	System.out.println("no");
@@ -427,23 +427,23 @@ public void actionPerformed(ActionEvent e) {
         }
         if(counter.equals("T2")) {
         	T2.setTotalCost(T2.getTotalCost()+MenuItems.get("Milkshake"));
-        	T2.items.add("Milkshake");
+        	T2.items1.add("Milkshake");
         }
         if(counter.equals("T3")) {
         	T3.setTotalCost(T3.getTotalCost()+MenuItems.get("Milkshake"));
-        	T3.items.add("Milkshake");
+        	T3.items2.add("Milkshake");
         }
         if(counter.equals("T4")) {
         	T4.setTotalCost(T4.getTotalCost()+MenuItems.get("Milkshake"));
-        	T4.items.add("Milkshake");
+        	T4.items3.add("Milkshake");
         }
         if(counter.equals("T5")) {
         	T5.setTotalCost(T5.getTotalCost()+MenuItems.get("Milkshake"));
-        	T5.items.add("Milkshake");
+        	T5.items4.add("Milkshake");
         }
         if(counter.equals("T6")) {
         	T6.setTotalCost(T6.getTotalCost()+MenuItems.get("Milkshake"));
-        	T6.items.add("Milkshake");
+        	T6.items5.add("Milkshake");
         }
         else {
         	System.out.println("no");
