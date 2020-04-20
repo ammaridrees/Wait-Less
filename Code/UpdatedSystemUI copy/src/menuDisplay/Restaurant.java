@@ -1,6 +1,7 @@
 package menuDisplay;
 
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -9,6 +10,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class Restaurant  {
+
    private boolean isServed;
    private boolean isOccupied;
 
@@ -20,6 +22,13 @@ public void setOccupied(boolean isOccupied) {
 }
    Timer timer;
    public String partyMembers[];
+  // private ArrayList<String> items = new ArrayList<>();
+   ArrayList<String> items = new ArrayList<>();
+   ArrayList<String> items1 = new ArrayList<>();
+   ArrayList<String> items2 = new ArrayList<>();
+   ArrayList<String> items3 = new ArrayList<>();
+   ArrayList<String> items4 = new ArrayList<>();
+   ArrayList<String> items5 = new ArrayList<>();
    private int totalCost;
    private int partyNumber;
    public Restaurant T1, T2, T3, T4, T5, T6;
@@ -28,10 +37,12 @@ public void setOccupied(boolean isOccupied) {
    List<Restaurant> users = getallUsers;
    Restaurant(){
 	  // T1 = new Restaurant();
-	   //T2 = new Restaurant();
-	   //T3 = new Restaurant();
-	   //T4 = new Restaurant();
+	//   T2 = new Restaurant();
+	  // T3 = new Restaurant();
+	  // T4 = new Restaurant();
    }
+
+
 public Restaurant[] getallUsers() {
 	Restaurant[] array = new Restaurant[] {T1,T2,T3,T4,T5,T6};
     // Fill array
