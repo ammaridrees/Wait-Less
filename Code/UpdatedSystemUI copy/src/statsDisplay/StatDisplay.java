@@ -1,11 +1,16 @@
 package statsDisplay;
 
 import tableLayout.Tabledisplay;
+import tasksList.Queue;
+import menuDisplay.Loader;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
+import java.text.DecimalFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class StatDisplay extends JFrame {
 
@@ -22,7 +27,7 @@ public class StatDisplay extends JFrame {
      */
     public StatDisplay() {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setBounds(100, 100, 558, 275);
+        setBounds(100, 100, 558, 425);
         setBackground(Color.LIGHT_GRAY);
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -31,11 +36,17 @@ public class StatDisplay extends JFrame {
         contentPane.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), "STATISTICS", TitledBorder.CENTER, TitledBorder.TOP));
         setContentPane(contentPane);
 
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm");
+        LocalDateTime now = LocalDateTime.now();
+
         Object[][] rowData = {
-                {"Tables Occupied", 8 - Tabledisplay.getAvailable()},
+                {"Date and Time", dtf.format(now)},
+                {"Tables Occupied", 6 - Tabledisplay.getAvailable()},
                 {"Tables Open", Tabledisplay.getAvailable()},
                 {"Customers Waiting", "0"},
-                {"Average Wait time", Integer.toString(waitTime.waiting()) + " minutes"}};
+                {"Average Wait time (sec)", new DecimalFormat("#.##").format(waitTime.waiting())},
+                {"Tasks Open", Queue.getLength()},
+                {"Tasks Completed", Queue.getDone()}};
 
         Object[] columnNames = {"Column One", "Column Two"};
 

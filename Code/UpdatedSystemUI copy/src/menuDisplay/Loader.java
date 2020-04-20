@@ -27,6 +27,7 @@ public class Loader extends Menu  implements ActionListener {
    private JPanel controlPanel;
    private JLabel id,name,price,quantity;
    private static int count = 0;
+   public static int rev = 0;
    Restaurant T1 = new Restaurant();
    Restaurant T2 = new Restaurant();
    Restaurant T3 = new Restaurant();

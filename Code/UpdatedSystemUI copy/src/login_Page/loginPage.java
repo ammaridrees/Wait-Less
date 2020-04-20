@@ -14,7 +14,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JPasswordField;
 
-public class loginPage {
+public class  loginPage {
 
 	private JFrame frame;
 	/**

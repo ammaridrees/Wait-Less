@@ -7,12 +7,14 @@ import static java.lang.Math.abs;
 
 public class Queue
 {
-    private int length;
+    private static int length;
+    private static int done;
     Node head;
 
     Queue()
     {
         head = null;
+        done = 0;
        // head.tail = null;
        // head.singleTask = null;
     }
@@ -21,10 +23,11 @@ public class Queue
         add(startQueue);
     }
 
-    int getLength()
+    public static int getLength()
     {
         return length;
     }
+    public static int getDone(){return done;}
 
     public void printQueue()
     {
@@ -60,6 +63,7 @@ public class Queue
         int deleted = head.singleTask.getTaskID();
         head = head.next;
         length--;
+        done++;
         return deleted; //returns taskID
     }
     public int dequeue(Task delete)
@@ -83,6 +87,8 @@ public class Queue
             }
             temp = temp.next;
             count++;
+            length--;
+            done++;
         }
         return -1;
     }
