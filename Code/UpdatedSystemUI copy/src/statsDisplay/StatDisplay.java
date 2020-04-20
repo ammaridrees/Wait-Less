@@ -21,13 +21,15 @@ public class StatDisplay extends JFrame {
     public JPanel contentPane;
     private JTable table;
     public JFrame frame;
+    private static int rev = Loader.T1.getTotalCost() + Loader.T2.getTotalCost() + Loader.T3.getTotalCost() +
+            Loader.T4.getTotalCost() + Loader.T5.getTotalCost() + Loader.T6.getTotalCost();
 
     /**
      * Create the frame.
      */
     public StatDisplay() {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setBounds(100, 100, 558, 425);
+        setBounds(100, 100, 558, 525);
         setBackground(Color.LIGHT_GRAY);
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -44,9 +46,11 @@ public class StatDisplay extends JFrame {
                 {"Tables Occupied", 6 - Tabledisplay.getAvailable()},
                 {"Tables Open", Tabledisplay.getAvailable()},
                 {"Customers Waiting", "0"},
-                {"Average Wait time (sec)", new DecimalFormat("#.##").format(waitTime.waiting())},
+                {"Wait time (sec)", new DecimalFormat("#.##").format(waitTime.waiting())},
                 {"Tasks Open", Queue.getLength()},
-                {"Tasks Completed", Queue.getDone()}};
+                {"Tasks Completed", Queue.getDone()},
+                {"Revenue ($)", rev},
+                {"Fun Fact of the Day", "Please give an A :)"}};
 
         Object[] columnNames = {"Column One", "Column Two"};
 

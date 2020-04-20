@@ -57,7 +57,7 @@ public class  loginPage {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Restraunt Name: Login Page");
+		JLabel lblNewLabel = new JLabel("Restaurant Name: Login Page");
 		lblNewLabel.setBounds(165, 16, 262, 16);
 		frame.getContentPane().add(lblNewLabel);
 		
