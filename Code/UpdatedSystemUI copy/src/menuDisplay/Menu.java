@@ -8,9 +8,10 @@ import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.Random;
 import java.util.Set;
-public class Menu {
-
-	public PriorityQueue<Integer>Line = new PriorityQueue<Integer>();
+public class Menu extends Restaurant {
+	//Menu mm = new Menu();
+	ArrayList<String> a1 = new ArrayList<String>();
+	//public PriorityQueue<Integer>Line = new PriorityQueue<Integer>();
 	public Hashtable<String, Integer> MenuItems =
              new Hashtable<String, Integer>();
 	Map<String, List<Integer>> hm = new HashMap<String, List<Integer>>();

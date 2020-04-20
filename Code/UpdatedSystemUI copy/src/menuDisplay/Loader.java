@@ -2,6 +2,7 @@ package menuDisplay;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
+import tableLayout.Tabledisplay;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.BorderPane;
@@ -13,11 +14,14 @@ import javax.swing.*;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Loader extends Menu  implements ActionListener {
-   protected JButton salmonButton,pizzaButton,lasagnaButton, steakButton,icecreamButton,cakeButton, milkshakeButton, donutButton;
+   protected JButton salmonButton,pizzaButton,lasagnaButton, steakButton,icecreamButton,cakeButton, milkshakeButton, donutButton,p;
+   Menu mm = new Menu();
+   //Thread thread = new Thread(new ViewOrders());
    protected Label list;
    protected DefaultListModel<String> l1 = new DefaultListModel<>();
    protected JList listy;
@@ -27,12 +31,13 @@ public class Loader extends Menu  implements ActionListener {
    private JPanel controlPanel;
    private JLabel id,name,price,quantity;
    private static int count = 0;
-   Restaurant T1 = new Restaurant();
-   Restaurant T2 = new Restaurant();
-   Restaurant T3 = new Restaurant();
-   Restaurant T4 = new Restaurant();
-   Restaurant T5 = new Restaurant();
-   Restaurant T6 = new Restaurant();
+   ViewOrders v;
+   public static Restaurant T1 = new Restaurant();
+   public static Restaurant T2 = new Restaurant();
+   public static Restaurant T3 = new Restaurant();
+   public static Restaurant T4 = new Restaurant();
+   public static Restaurant T5 = new Restaurant();
+   public static Restaurant T6 = new Restaurant();
    //GridLayout experimentLayout = new GridLayout(0,2);
    ScrollPaneLayout experimentLayout = new ScrollPaneLayout();
     ResultSet rs;
@@ -89,7 +94,8 @@ public class Loader extends Menu  implements ActionListener {
         tf2=new JTextField();
         tf2.setPreferredSize( new Dimension( 50, 24 ) );
 
-        JButton p = new JButton("Submit");
+       p = new JButton("View Orders");
+       p.setActionCommand("switch");
         //tf2.getText();
         tf2.setSize(100,40);
 
@@ -123,6 +129,7 @@ public class Loader extends Menu  implements ActionListener {
 	    milkshakeButton.addActionListener(this);
 	    icecreamButton.addActionListener(this);
 	    donutButton.addActionListener(this);
+	    p.addActionListener(this);
 
 
 
@@ -159,6 +166,7 @@ public class Loader extends Menu  implements ActionListener {
 @Override
 public void actionPerformed(ActionEvent e) {
 	// TODO Auto-generated method stub
+
 	if ("Salmon".equals(e.getActionCommand())) {
 		String counter = tf2.getText();
 		l1.addElement("Salmon Ordered by Table \"" + tf2.getText() + "\" Cost is $" + MenuItems.get("Salmon") );
@@ -166,21 +174,27 @@ public void actionPerformed(ActionEvent e) {
         hm.put(tf2.getText(),values);
         if(counter.equals("T1")) {
         	T1.setTotalCost(T1.getTotalCost()+MenuItems.get("Salmon"));
+        	T1.items.add("Salmon");
         }
         if(counter.equals("T2")) {
         	T2.setTotalCost(T2.getTotalCost()+MenuItems.get("Salmon"));
+        	T2.items.add("Salmon");
         }
         if(counter.equals("T3")) {
         	T3.setTotalCost(T3.getTotalCost()+MenuItems.get("Salmon"));
+        	T3.items.add("Salmon");
         }
         if(counter.equals("T4")) {
         	T4.setTotalCost(T4.getTotalCost()+MenuItems.get("Salmon"));
+        	T4.items.add("Salmon");
         }
         if(counter.equals("T5")) {
         	T5.setTotalCost(T5.getTotalCost()+MenuItems.get("Salmon"));
+        	T5.items.add("Salmon");
         }
         if(counter.equals("T6")) {
         	T6.setTotalCost(T6.getTotalCost()+MenuItems.get("Salmon"));
+        	T6.items.add("Salmon");
         }
         else {
         	System.out.println("no");
@@ -195,21 +209,27 @@ public void actionPerformed(ActionEvent e) {
         hm.put(tf2.getText(),values);
         if(counter.equals("T1")) {
         	T1.setTotalCost(T1.getTotalCost()+MenuItems.get("Lasagna"));
+        	T1.items.add("Lasagna");
         }
         if(counter.equals("T2")) {
         	T2.setTotalCost(T2.getTotalCost()+MenuItems.get("Lasagna"));
+        	T2.items.add("Lasagna");
         }
         if(counter.equals("T3")) {
         	T3.setTotalCost(T3.getTotalCost()+MenuItems.get("Lasagna"));
+        	T3.items.add("Lasagna");
         }
         if(counter.equals("T4")) {
         	T4.setTotalCost(T4.getTotalCost()+MenuItems.get("Lasagna"));
+        	T4.items.add("Lasagna");
         }
         if(counter.equals("T5")) {
         	T5.setTotalCost(T5.getTotalCost()+MenuItems.get("Lasagna"));
+        	T5.items.add("Lasagna");
         }
         if(counter.equals("T6")) {
         	T6.setTotalCost(T6.getTotalCost()+MenuItems.get("Lasagna"));
+        	T6.items.add("Lasagna");
         }
         else {
         	System.out.println("no");
@@ -223,21 +243,28 @@ public void actionPerformed(ActionEvent e) {
         hm.put(tf2.getText(),values);
         if(counter.equals("T1")) {
         	T1.setTotalCost(T1.getTotalCost()+MenuItems.get("Pizza"));
+        	T1.items.add("Pizza");
+        	//mm.a1.forEach((n) -> System.out.println(n));
         }
         if(counter.equals("T2")) {
         	T2.setTotalCost(T2.getTotalCost()+MenuItems.get("Pizza"));
+        	T2.items.add("Pizza");
         }
         if(counter.equals("T3")) {
         	T3.setTotalCost(T3.getTotalCost()+MenuItems.get("Pizza"));
+        	T3.items.add("Pizza");
         }
         if(counter.equals("T4")) {
         	T4.setTotalCost(T4.getTotalCost()+MenuItems.get("Pizza"));
+        	T4.items.add("Pizza");
         }
         if(counter.equals("T5")) {
         	T5.setTotalCost(T5.getTotalCost()+MenuItems.get("Pizza"));
+        	T5.items.add("Pizza");
         }
         if(counter.equals("T6")) {
         	T6.setTotalCost(T6.getTotalCost()+MenuItems.get("Pizza"));
+        	T6.items.add("Pizza");
         }
         else {
         	System.out.println("no");
@@ -251,21 +278,27 @@ public void actionPerformed(ActionEvent e) {
         hm.put(tf2.getText(),values);
         if(counter.equals("T1")) {
         	T1.setTotalCost(T1.getTotalCost()+MenuItems.get("Steak"));
+        	T1.items.add("Steak");
         }
         if(counter.equals("T2")) {
         	T2.setTotalCost(T2.getTotalCost()+MenuItems.get("Steak"));
+        	T2.items.add("Steak");
         }
         if(counter.equals("T3")) {
         	T3.setTotalCost(T3.getTotalCost()+MenuItems.get("Steak"));
+        	T3.items.add("Steak");
         }
         if(counter.equals("T4")) {
         	T4.setTotalCost(T4.getTotalCost()+MenuItems.get("Steak"));
+        	T4.items.add("Steak");
         }
         if(counter.equals("T5")) {
         	T5.setTotalCost(T5.getTotalCost()+MenuItems.get("Steak"));
+        	T5.items.add("Steak");
         }
         if(counter.equals("T6")) {
         	T6.setTotalCost(T6.getTotalCost()+MenuItems.get("Steak"));
+        	T6.items.add("Steak");
         }
         else {
         	System.out.println("no");
@@ -280,21 +313,27 @@ public void actionPerformed(ActionEvent e) {
         System.out.println(hm.get("T1"));
         if(counter.equals("T1")) {
         	T1.setTotalCost(T1.getTotalCost()+MenuItems.get("Donut"));
+        	T1.items.add("Donut");
         }
         if(counter.equals("T2")) {
         	T2.setTotalCost(T2.getTotalCost()+MenuItems.get("Donut"));
+        	T2.items.add("Donut");
         }
         if(counter.equals("T3")) {
         	T3.setTotalCost(T3.getTotalCost()+MenuItems.get("Donut"));
+        	T3.items.add("Donut");
         }
         if(counter.equals("T4")) {
         	T4.setTotalCost(T4.getTotalCost()+MenuItems.get("Donut"));
+        	T4.items.add("Donut");
         }
         if(counter.equals("T5")) {
         	T5.setTotalCost(T5.getTotalCost()+MenuItems.get("Donut"));
+        	T5.items.add("Donut");
         }
         if(counter.equals("T6")) {
         	T6.setTotalCost(T6.getTotalCost()+MenuItems.get("Donut"));
+        	T6.items.add("Donut");
         }
         else {
         	System.out.println("no");
@@ -308,21 +347,27 @@ public void actionPerformed(ActionEvent e) {
         System.out.println(hm.get("T1"));
         if(counter.equals("T1")) {
         	T1.setTotalCost(T1.getTotalCost()+MenuItems.get("Ice Cream"));
+        	T1.items.add("Ice Cream");
         }
         if(counter.equals("T2")) {
         	T2.setTotalCost(T2.getTotalCost()+MenuItems.get("Ice Cream"));
+        	T2.items.add("Ice Cream");
         }
         if(counter.equals("T3")) {
         	T3.setTotalCost(T3.getTotalCost()+MenuItems.get("Ice Cream"));
+        	T3.items.add("Ice Cream");
         }
         if(counter.equals("T4")) {
         	T4.setTotalCost(T4.getTotalCost()+MenuItems.get("Ice Cream"));
+        	T4.items.add("Ice Cream");
         }
         if(counter.equals("T5")) {
         	T5.setTotalCost(T5.getTotalCost()+MenuItems.get("Ice Cream"));
+        	T5.items.add("Ice Cream");
         }
         if(counter.equals("T6")) {
         	T6.setTotalCost(T6.getTotalCost()+MenuItems.get("Ice Cream"));
+        	T6.items.add("Ice Cream");
         }
         else {
         	System.out.println("no");
@@ -336,21 +381,27 @@ public void actionPerformed(ActionEvent e) {
         System.out.println(tf2.getText());
         if(counter.equals("T1")) {
         	T1.setTotalCost(T1.getTotalCost()+MenuItems.get("Cake"));
+        	T1.items.add("Cake");
         }
         if(counter.equals("T2")) {
         	T2.setTotalCost(T2.getTotalCost()+MenuItems.get("Cake"));
+        	T2.items.add("Cake");
         }
         if(counter.equals("T3")) {
         	T3.setTotalCost(T3.getTotalCost()+MenuItems.get("Cake"));
+        	T3.items.add("Cake");
         }
         if(counter.equals("T4")) {
         	T4.setTotalCost(T4.getTotalCost()+MenuItems.get("Cake"));
+        	T4.items.add("Cake");
         }
         if(counter.equals("T5")) {
         	T5.setTotalCost(T5.getTotalCost()+MenuItems.get("Cake"));
+        	T5.items.add("Cake");
         }
         if(counter.equals("T6")) {
         	T6.setTotalCost(T6.getTotalCost()+MenuItems.get("Cake"));
+        	T6.items.add("Cake");
         }
         else {
         	System.out.println("no");
@@ -372,26 +423,35 @@ public void actionPerformed(ActionEvent e) {
         System.out.println(hm.get("T1"));
         if(counter.equals("T1")) {
         	T1.setTotalCost(T1.getTotalCost()+MenuItems.get("Milkshake"));
+        	T1.items.add("Milkshake");
         }
         if(counter.equals("T2")) {
         	T2.setTotalCost(T2.getTotalCost()+MenuItems.get("Milkshake"));
+        	T2.items.add("Milkshake");
         }
         if(counter.equals("T3")) {
         	T3.setTotalCost(T3.getTotalCost()+MenuItems.get("Milkshake"));
+        	T3.items.add("Milkshake");
         }
         if(counter.equals("T4")) {
         	T4.setTotalCost(T4.getTotalCost()+MenuItems.get("Milkshake"));
+        	T4.items.add("Milkshake");
         }
         if(counter.equals("T5")) {
         	T5.setTotalCost(T5.getTotalCost()+MenuItems.get("Milkshake"));
+        	T5.items.add("Milkshake");
         }
         if(counter.equals("T6")) {
         	T6.setTotalCost(T6.getTotalCost()+MenuItems.get("Milkshake"));
+        	T6.items.add("Milkshake");
         }
         else {
         	System.out.println("no");
         }
     }
-
+	if("switch".equals(e.getActionCommand())) {
+		ViewOrders display = new ViewOrders();
+		ViewOrders.main(null);
+	}
 }
 }
