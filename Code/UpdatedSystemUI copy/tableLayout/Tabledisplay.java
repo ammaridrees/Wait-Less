@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.BoxLayout;
+import javax.swing.DefaultListModel;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.ImageIcon;
@@ -20,6 +21,7 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.border.LineBorder;
 
 import menuDisplay.Loader;
@@ -46,8 +48,10 @@ import tasksList.User;
 public class Tabledisplay extends JFrame implements ActionListener{
 
 	private JPanel contentPane;
-	
-	
+
+	protected DefaultListModel<String> routing = new DefaultListModel<>();
+	protected DefaultListModel<String> maaz = new DefaultListModel<>();
+	protected JList routing1,maaz1;
 	private Image img_menu = new ImageIcon(Tabledisplay.class.getResource("/resources/icons8-menu-64.png")).getImage().getScaledInstance(90, 90, Image.SCALE_SMOOTH);
 	private Image img_tasks = new ImageIcon(Tabledisplay.class.getResource("/resources/icons8-task-64.png")).getImage().getScaledInstance(90, 90, Image.SCALE_SMOOTH);
 	private Image img_stats = new ImageIcon(Tabledisplay.class.getResource("/resources/icons8-statistics-64.png")).getImage().getScaledInstance(90, 90, Image.SCALE_SMOOTH);
@@ -83,8 +87,8 @@ public class Tabledisplay extends JFrame implements ActionListener{
 	 * Create the frame.
 	 */
 	    public Tabledisplay() {
-	    	
-	    	 
+
+
 			setBackground(new Color(148, 0, 211));
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			setBounds(100, 100, 1177, 551);
@@ -98,38 +102,38 @@ public class Tabledisplay extends JFrame implements ActionListener{
 			paneSidebar.setBounds(0, 0, 278, 551);
 			contentPane.add(paneSidebar);
 			paneSidebar.setLayout(null);
-			
+
 			JPanel paneMenu = new JPanel();
 			paneMenu.setBackground(new Color(153, 50, 204));
 			paneMenu.setBounds(0, 153, 289, 84);
 			paneSidebar.add(paneMenu);
 			paneMenu.setLayout(null);
-			
+
 			JLabel lblMenuIcon = new JLabel("");
 			lblMenuIcon.setHorizontalAlignment(SwingConstants.CENTER);
 			lblMenuIcon.setBounds(17, 4, 89, 72);
 			lblMenuIcon.setIcon(new ImageIcon(img_menu));
 			paneMenu.add(lblMenuIcon);
-			
+
 			JButton btnMenu = new JButton("MENU");
 			  btnMenu.addActionListener(new ActionListener() {
 			   public void actionPerformed(ActionEvent e) {
 			    Loader display = new Loader();
 			    Loader.main(null);
-			    
+
 			    int table1Cost = Loader.T1.getTotalCost();
 			    int table2Cost = Loader.T2.getTotalCost();
 			    int table3Cost = Loader.T3.getTotalCost();
 			    int table4Cost = Loader.T4.getTotalCost();
 			    int table5Cost = Loader.T5.getTotalCost();
 			    int table6Cost = Loader.T6.getTotalCost();
-			    
-			    
-			    
-			    PriorityQueue<Table> pq = new 
-			             PriorityQueue<Table>(6, new TableComparator()); 
-			    
-			    
+
+
+
+			    PriorityQueue<Table> pq = new
+			             PriorityQueue<Table>(6, new TableComparator());
+
+
 			    Table table1 = new Table("Table 1", table1Cost);
 			    pq.add(table1);
 			    System.out.println(table1Cost);
@@ -148,18 +152,26 @@ public class Tabledisplay extends JFrame implements ActionListener{
 			    Table table6 = new Table("Table 6", table6Cost);
 			    pq.add(table6);
 			    System.out.println(table6Cost);
-			    
-			    while (!pq.isEmpty()) { 
-	                System.out.println(pq.poll().getName()); 
-	        }  			   // queue.add(table2Cost);
+
+			    routing.addElement("Optimal Path");
+			    routing1 = new JList<>(routing);
+			    while (!pq.isEmpty()) {
+	               //System.out.println(pq.poll().getName());
+
+			    	routing.addElement(pq.poll().getName());
+
+	        }
+	        		   // queue.add(table2Cost);
 			   // queue.add(table3Cost);
 			  //  queue.add(table4Cost);
 			   // queue.add(table5Cost);
 			   // queue.add(table6Cost);
+
 			    int x;
-			    
+
+
 			//    Comparator comp = queue.comparator();
-			    
+
 			  //  System.out.println(queue);
  			    //System.out.println(Loader.T1.getTotalCost());
 			   // System.out.println(Loader.T2.getTotalCost());
@@ -167,28 +179,28 @@ public class Tabledisplay extends JFrame implements ActionListener{
 			   // System.out.println(Loader.T4.getTotalCost());
 			   // System.out.println(Loader.T5.getTotalCost());
 			   // System.out.println(Loader.T6.getTotalCost());
-			    
+
 			   }
 			  });
-			  
-			
+
+
 			btnMenu.setBackground(new Color(148, 0, 211));
 			btnMenu.setBounds(112, 4, 152, 72);
 			paneMenu.add(btnMenu);
-			
+
 			JPanel paneTasks = new JPanel();
 			paneTasks.setBackground(new Color(153, 50, 204));
 			paneTasks.setBounds(0, 290, 289, 84);
 			paneSidebar.add(paneTasks);
 			paneTasks.setLayout(null);
-			
-		
+
+
 			JLabel lblTasksIcon = new JLabel("");
 			lblTasksIcon.setHorizontalAlignment(SwingConstants.CENTER);
 			lblTasksIcon.setBounds(6, 6, 89, 72);
 			lblTasksIcon.setIcon(new ImageIcon(img_tasks));
 			paneTasks.add(lblTasksIcon);
-			
+
 			JButton tasksButton = new JButton("TASKS LIST");
 			  tasksButton.setBackground(new Color(148, 0, 211));
 			  tasksButton.addActionListener(new ActionListener() {
@@ -206,21 +218,21 @@ public class Tabledisplay extends JFrame implements ActionListener{
 			  });
 			tasksButton.setBounds(113, 6, 152, 72);
 			paneTasks.add(tasksButton);
-			
-			
+
+
 			JPanel paneStats = new JPanel();
 			paneStats.setBackground(new Color(153, 50, 204));
 			paneStats.setBounds(0, 438, 289, 84);
 			paneSidebar.add(paneStats);
 			paneStats.setLayout(null);
-			
+
 			JLabel lblStatsIcon = new JLabel("");
 			lblStatsIcon.setBounds(6, 6, 89, 72);
 			paneStats.add(lblStatsIcon);
 			lblStatsIcon.setHorizontalAlignment(SwingConstants.CENTER);
 			lblStatsIcon.setIcon(new ImageIcon(img_tasks));
 			lblStatsIcon.setIcon(new ImageIcon(img_stats));
-			
+
 			JButton button = new JButton("STATS SCREEN");
 			  button.addActionListener(new ActionListener() {
 			   public void actionPerformed(ActionEvent e) {
@@ -231,26 +243,26 @@ public class Tabledisplay extends JFrame implements ActionListener{
 			button.setBackground(new Color(148, 0, 211));
 			button.setBounds(116, 6, 152, 72);
 			paneStats.add(button);
-			
+
 			JLabel lblTitle = new JLabel("Waitless");
 			lblTitle.setFont(new Font("Dialog", Font.BOLD, 35));
 			lblTitle.setForeground(new Color(255, 255, 255));
 			lblTitle.setHorizontalAlignment(SwingConstants.CENTER);
 			lblTitle.setBounds(6, 6, 266, 142);
 			paneSidebar.add(lblTitle);
-			
+
 			JPanel panel = new JPanel();
 			panel.setBackground(new Color(148, 0, 211));
 			panel.setBounds(281, 0, 890, 551);
 			contentPane.add(panel);
 			panel.setLayout(null);
-			
+
 			JLabel lblTable1 = new JLabel("");
 			panel.add(lblTable1);
 			lblTable1.setBounds(46, 110, 90, 90);
 			//panel.add(lblTable1);
 			lblTable1.setIcon(new ImageIcon(img_table));
-			
+
 			tbl1Button1 = new JButton("Table1");
 			tbl1Button1.setActionCommand("One");
 			tbl1Button1.setBackground(new Color(192, 192, 192));
@@ -258,12 +270,12 @@ public class Tabledisplay extends JFrame implements ActionListener{
 			tbl1Button1.setBorderPainted(false);
 			tbl1Button1.setBounds(132, 150, 117, 29);
 			panel.add(tbl1Button1);
-			
+
 			JLabel lblTable2 = new JLabel("");
 			panel.add(lblTable2);
 			lblTable2.setBounds(356, 110, 90, 90);
 			lblTable2.setIcon(new ImageIcon(img_table));
-			
+
 			tblButton2 = new JButton("Table2");
 			tblButton2.setActionCommand("Two");
 			/*tblButton2.addActionListener(new ActionListener() {
@@ -275,7 +287,7 @@ public class Tabledisplay extends JFrame implements ActionListener{
 			tblButton2.setBackground(Color.LIGHT_GRAY);
 			tblButton2.setBounds(446, 150, 117, 29);
 			panel.add(tblButton2);
-			
+
 			  tbl3Button = new JButton("Table3");
 			  tbl3Button.setActionCommand("Three");
 			/*tbl3Button.addActionListener(new ActionListener() {
@@ -287,17 +299,17 @@ public class Tabledisplay extends JFrame implements ActionListener{
 			tbl3Button.setBackground(Color.LIGHT_GRAY);
 			tbl3Button.setBounds(748, 150, 117, 29);
 			panel.add(tbl3Button);
-			
+
 			JLabel label = new JLabel("");
 			label.setBounds(654, 110, 90, 90);
 			label.setIcon(new ImageIcon(img_table));
 			panel.add(label);
-			
+
 			JLabel lblTable4 = new JLabel("");
 			panel.add(lblTable4);
 			lblTable4.setBounds(61, 318, 90, 90);
 			lblTable4.setIcon(new ImageIcon(img_table));
-			
+
 			tbl4Button = new JButton("Table4");
 			tbl4Button.setActionCommand("Four");
 			/*tbl4Button.addActionListener(new ActionListener() {
@@ -309,12 +321,12 @@ public class Tabledisplay extends JFrame implements ActionListener{
 			tbl4Button.setBackground(Color.LIGHT_GRAY);
 			tbl4Button.setBounds(148, 353, 117, 29);
 			panel.add(tbl4Button);
-			
+
 			JLabel lblTable5 = new JLabel("");
 			panel.add(lblTable5);
 			lblTable5.setBounds(356, 304, 90, 90);
 			lblTable5.setIcon(new ImageIcon(img_table));
-			
+
 			tbl5Button = new JButton("Table5");
 			tbl5Button.setActionCommand("Five");
 			/*tbl5Button.addActionListener(new ActionListener() {
@@ -326,12 +338,12 @@ public class Tabledisplay extends JFrame implements ActionListener{
 			tbl5Button.setBackground(Color.LIGHT_GRAY);
 			tbl5Button.setBounds(446, 353, 117, 29);
 			panel.add(tbl5Button);
-			
+
 			JLabel lblTable6 = new JLabel("");
 			panel.add(lblTable6);
 			lblTable6.setBounds(670, 304, 90, 90);
 			lblTable6.setIcon(new ImageIcon(img_table));
-			
+
 			button_5 = new JButton("Table6");
 			button_5.setActionCommand("Six");
 			/*button_5.addActionListener(new ActionListener() {
@@ -343,8 +355,22 @@ public class Tabledisplay extends JFrame implements ActionListener{
 			button_5.setBackground(Color.LIGHT_GRAY);
 			button_5.setBounds(767, 335, 117, 29);
 			panel.add(button_5);
-			
-			
+
+			//JButton b = new JButton();
+			//routing1.setOpaque(true);
+			//b.setBorderPainted(false);
+			//routing1.setBackground(Color.LIGHT_GRAY);
+			//routing1.setBounds(800, 400, 300, 60);
+			//panel.add(routing1);
+			//maaz.addElement("hi");
+			//maaz1 = new JList<>(maaz);
+			routing1.setOpaque(true);
+			//maaz1.setBorderPainted(false);
+			routing1.setBackground(Color.LIGHT_GRAY);
+	        routing1.setBounds(800, 400, 300, 60);
+
+			//routing1.setBounds(800,400,130,45);
+			//panel.add(routing1);
 			tbl1Button1.addActionListener(this);
 			tblButton2.addActionListener(this);
 			tbl3Button.addActionListener(this);
@@ -352,8 +378,8 @@ public class Tabledisplay extends JFrame implements ActionListener{
 			tbl5Button.addActionListener(this);
 			button_5.addActionListener(this);
 
-			
-			
+
+
 		}
 
 		@Override
