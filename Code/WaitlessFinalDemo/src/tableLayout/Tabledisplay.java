@@ -128,36 +128,13 @@ public class Tabledisplay extends JFrame implements ActionListener{
 			   // Loader display = new Loader();
 			    Loader.main(null);
 			    
-			    int table1Cost = Loader.T1.getTotalCost();
-			    int table2Cost = Loader.T2.getTotalCost();
-			    int table3Cost = Loader.T3.getTotalCost();
-			    int table4Cost = Loader.T4.getTotalCost();
-			    int table5Cost = Loader.T5.getTotalCost();
-			    int table6Cost = Loader.T6.getTotalCost();
+			   
 			    
 			    
 			    
 			    
 			    
-			    
-			    Table table1 = new Table("Table 1", table1Cost);
-			    pq.add(table1);
-			    System.out.println(table1Cost);
-			    Table table2 = new Table("Table 2", table2Cost);
-			    pq.add(table2);
-			    System.out.println(table2Cost);
-			    Table table3 = new Table("Table 3", table3Cost);
-			    pq.add(table3);
-			    System.out.println(table3Cost);
-			    Table table4 = new Table("Table 4", table4Cost);
-			    pq.add(table4);
-			    System.out.println(table4Cost);
-			    Table table5 = new Table("Table 5", table5Cost);
-			    pq.add(table5);
-			    System.out.println(table5Cost);
-			    Table table6 = new Table("Table 6", table6Cost);
-			    pq.add(table6);
-			    System.out.println(table6Cost);
+			   
 			    
 			    //routing.addElement("Optimal Path");
 			    
@@ -539,11 +516,57 @@ public class Tabledisplay extends JFrame implements ActionListener{
 					isClicked6 = false;
 				}
 				else if ("update".equals(e.getActionCommand())) {
-					routing.removeAllElements();
-					while (!pq.isEmpty()) { 
+					
+					 int table1Cost = Loader.T1.getTotalCost();
+					    int table2Cost = Loader.T2.getTotalCost();
+					    int table3Cost = Loader.T3.getTotalCost();
+					    int table4Cost = Loader.T4.getTotalCost();
+					    int table5Cost = Loader.T5.getTotalCost();
+					    int table6Cost = Loader.T6.getTotalCost();
+					 
+				    Table table1 = new Table("Table 1", table1Cost);
+				    if(table1Cost != 0 && isClicked1 == true)
+				    {
+				    	pq.add(table1);
+				    	System.out.println(table1Cost);
+				    }
+				   if(table2Cost != 0 && isClicked2 == true)
+				    {
+				    	Table table2 = new Table("Table 2", table2Cost);
+				    	pq.add(table2);
+				    	System.out.println(table2Cost);
+				    }
+				  if(table3Cost != 0 && isClicked3 == true)
+				    {
+				    	Table table3 = new Table("Table 3", table3Cost);
+				    	pq.add(table3);
+				    	System.out.println(table3Cost);
+				    }
+				   if(table4Cost != 0 && isClicked4 == true)
+				    {
+				    	Table table4 = new Table("Table 4", table4Cost);
+				    	pq.add(table4);
+				    	System.out.println(table4Cost);
+				    }
+				    if(table5Cost != 0 && isClicked5 == true)
+				    {
+				    	Table table5 = new Table("Table 5", table5Cost);
+				    	pq.add(table5);
+				    	System.out.println(table5Cost);
+				    }
+				    if(table6Cost !=0 && isClicked6 == true)
+				    {
+				    	Table table6 = new Table("Table 6", table6Cost);
+				    	pq.add(table6);
+				    	System.out.println(table6Cost);
+				    }
+				    routing.removeAllElements();
+
+							while (!pq.isEmpty()) { 
 			               //System.out.println(pq.poll().getName()); 
 				    		
 					    	routing.addElement(pq.poll().getName());
+					    	
 
 					    	
 			        }  	
