@@ -21,19 +21,27 @@ import java.util.logging.Logger;
 import javax.swing.border.MatteBorder;
 
 public class Loader extends Menu implements ActionListener {
-   protected JButton salmonButton,pizzaButton,lasagnaButton, steakButton,icecreamButton,cakeButton, milkshakeButton, donutButton,p;
+   protected JButton salmonButton,pizzaButton,lasagnaButton, steakButton,icecreamButton,cakeButton, milkshakeButton, donutButton,p, delete;
    Menu mm = new Menu();
    //Thread thread = new Thread(new ViewOrders());
    protected Label list;
    protected DefaultListModel<String> l1 = new DefaultListModel<>();
    protected JList listy;
-   protected JTextField tf2;
+   protected JTextField tf2, tf3;
    private JFrame mainFrame;
    private JLabel headerLabel;
    private JPanel controlPanel;
    private JLabel id,name,price,quantity;
    private static int count = 0;
    ViewOrders v;
+   boolean steakChecker = false;
+   boolean salmonChecker = false;
+   boolean pizzaChecker = false;
+   boolean lasagnaChecker = false;
+   boolean milkshakeChecker = false;
+   boolean icecreamChecker = false;
+   boolean donutChecker = false;
+   boolean cakeChecker = false;
    public static Restaurant T1 = new Restaurant();
    public static Restaurant T2 = new Restaurant();
    public static Restaurant T3 = new Restaurant();
@@ -43,6 +51,7 @@ public class Loader extends Menu implements ActionListener {
    //GridLayout experimentLayout = new GridLayout(0,2);
    ScrollPaneLayout experimentLayout = new ScrollPaneLayout();
     ResultSet rs;
+    private JLabel lblEntrees;
 
     public Loader(){
 
@@ -79,12 +88,26 @@ public class Loader extends Menu implements ActionListener {
       mainFrame.getContentPane().add(headerLabel);
       headerLabel.setText("Waitless Menu");
       headerLabel.setFont(new Font(null, Font.BOLD, 27));
-      
+
              p = new JButton("View Orders");
-             p.setBounds(772, 58, 119, 29);
+             p.setBounds(767, 58, 119, 29);
              mainFrame.getContentPane().add(p);
              p.setActionCommand("switch");
              p.addActionListener(this);
+
+             delete = new JButton("Delete");
+             delete.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
+             delete.setBounds(1178, 59, 119, 29);
+             mainFrame.getContentPane().add(delete);
+             delete.setActionCommand("delete");
+             delete.addActionListener(this);
+             tf3=new JTextField();
+             tf3.setLocation(1069, 51);
+             tf3.setPreferredSize( new Dimension( 50, 24 ) );
+                    //tf2.getText();
+             tf3.setSize(100,40);
+             //p.setBounds(900, 58, 119, 29);
+             mainFrame.getContentPane().add(tf3);
       mainFrame.setVisible(true);
    }
 
@@ -102,13 +125,11 @@ public class Loader extends Menu implements ActionListener {
       listy = new JList<>(l1);
       listy.setBorder(new MatteBorder(2, 1, 1, 1, (Color) new Color(0, 0, 0)));
       listy.setBackground(Color.WHITE);
-      
-              name = new JLabel("Entrees    Enter Table Number");
+
+              name = new JLabel("Enter Table Number");
               tf2=new JTextField();
               tf2.setPreferredSize( new Dimension( 50, 24 ) );
-                     //tf2.getText();
-                     tf2.setSize(100,40);
-                     
+
                              price = new JLabel("Dessert");
                              // JTextField tf3=new JTextField();
                               //tf3.setSize(100,40);
@@ -139,15 +160,19 @@ public class Loader extends Menu implements ActionListener {
                               milkshakeButton.addActionListener(this);
                               icecreamButton.addActionListener(this);
                               donutButton.addActionListener(this);
-                              
-                              
-                              
-                              
-                              
-                              
-                              
+                                    jp.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+
+
+
+
+
+
+
                                     jp.add(name);
                                     jp.add(tf2);
+                                    
+                                    lblEntrees = new JLabel("Entrees");
+                                    jp.add(lblEntrees);
                                     jp.add(lasagnaButton);
                                     jp.add(pizzaButton);
                                     jp.add(steakButton);
@@ -170,12 +195,48 @@ public class Loader extends Menu implements ActionListener {
 	  mainFrame.setLocationRelativeTo(null);
       mainFrame.setVisible(true);
    }
+public void deleteItem(String tableName, String food) {
+	String item = food;
+
+	System.out.println(T1.items);
+	if(tableName.contains("T1") && T1.items.contains(food)) {
+		l1.addElement(item + " cancelled by Table  " + tableName );
+		T1.items.remove(item);
+		T1.setTotalCost(T1.getTotalCost()- MenuItems.get(item));}
+
+	else if(tableName.contains("T2")&& T2.items1.contains(food)) {
+		l1.addElement(item + " cancelled by Table  " + tableName );
+		T2.items1.remove(item);
+		T2.setTotalCost(T2.getTotalCost()- MenuItems.get(item));}
+	else if(tableName.contains("T3")&& T3.items2.contains(food)) {
+		l1.addElement(item + " cancelled by Table  " + tableName );
+		T3.items2.remove(item);
+		T3.setTotalCost(T3.getTotalCost()- MenuItems.get(item));}
+	else if(tableName.contains("T4")&& T4.items3.contains(food)) {
+		l1.addElement(item + " cancelled by Table  " + tableName );
+		T4.items3.remove(item);
+		T4.setTotalCost(T4.getTotalCost()- MenuItems.get(item));}
+	else if(tableName.contains("T5")&& T5.items4.contains(food)) {
+		l1.addElement(item + " cancelled by Table  " + tableName );
+		T5.items4.remove(item);
+		T5.setTotalCost(T5.getTotalCost()- MenuItems.get(item));}
+	else if(tableName.contains("T6")&& T6.items5.contains(food)) {
+		l1.addElement(item + " cancelled by Table  " + tableName );
+		T6.items5.remove(item);
+		T6.setTotalCost(T6.getTotalCost()- MenuItems.get(item));}
+	else {
+		l1.addElement("Error table hasn't ordered that item");
+	}
+
+    salmonChecker = false;
+}
 
 @Override
 public void actionPerformed(ActionEvent e) {
 	// TODO Auto-generated method stub
 
 	if ("Salmon".equals(e.getActionCommand())) {
+
 		String counter = tf2.getText();
 		l1.addElement("Salmon Ordered by Table \"" + tf2.getText() + "\" Cost is $" + MenuItems.get("Salmon") );
 		values.add(MenuItems.get("Salmon"));
@@ -211,6 +272,7 @@ public void actionPerformed(ActionEvent e) {
 
     }
 	if ("Lasagna".equals(e.getActionCommand())) {
+		lasagnaChecker = true;
 		String counter = tf2.getText();
 		l1.addElement("Lasagna Ordered by Table \"" + tf2.getText() + "\" Cost is $" + MenuItems.get("Lasagna") );
 		values.add(MenuItems.get("Steak"));
@@ -245,6 +307,7 @@ public void actionPerformed(ActionEvent e) {
 
     }
 	if ("Pizza".equals(e.getActionCommand())) {
+		pizzaChecker = true;
 		String counter = tf2.getText();
 		l1.addElement("Pizza Ordered by Table \"" + tf2.getText() + "\" Cost is $" + MenuItems.get("Pizza") );
 		values.add(MenuItems.get("Pizza"));
@@ -280,6 +343,7 @@ public void actionPerformed(ActionEvent e) {
 
     }
 	if ("Steak".equals(e.getActionCommand())) {
+
 		String counter = tf2.getText();
 		l1.addElement("Steak Ordered by Table \"" + tf2.getText() + "\" Cost is $" + MenuItems.get("Steak") );
 		values.add(MenuItems.get("Steak"));
@@ -314,6 +378,7 @@ public void actionPerformed(ActionEvent e) {
 
     }
 	if ("Donut".equals(e.getActionCommand())) {
+		donutChecker = true;
 		String counter = tf2.getText();
 		l1.addElement("Donut Ordered by Table \"" + tf2.getText() + "\" Cost is $" + MenuItems.get("Donut") );
 		values.add(MenuItems.get("Donut"));
@@ -348,6 +413,7 @@ public void actionPerformed(ActionEvent e) {
         }
     }
 	if ("Ice Cream".equals(e.getActionCommand())) {
+		icecreamChecker = true;
 		String counter = tf2.getText();
 		l1.addElement("Ice Cream Ordered by Table \"" + tf2.getText() + "\" Cost is $" + MenuItems.get("Ice Cream") );
 		values.add(MenuItems.get("Ice Cream"));
@@ -382,6 +448,7 @@ public void actionPerformed(ActionEvent e) {
         }
     }
 	if ("Cake".equals(e.getActionCommand())) {
+		cakeChecker = true;
 		String counter = tf2.getText();
 		l1.addElement("Cake Ordered by Table \"" + tf2.getText() + "\" Cost is $" + MenuItems.get("Cake") );
 		values.add(MenuItems.get("Cake"));
@@ -424,6 +491,7 @@ public void actionPerformed(ActionEvent e) {
         //System.out.println(hm.get("T1"));
     }
 	if ("Milkshake".equals(e.getActionCommand())) {
+	    milkshakeChecker = true;
 		String counter = tf2.getText();
 		l1.addElement("Milkshake Ordered by Table \"" + tf2.getText() + "\" Cost is $" + MenuItems.get("Milkshake") );
 		values.add(MenuItems.get("Milkshake"));
@@ -457,9 +525,55 @@ public void actionPerformed(ActionEvent e) {
         	System.out.println("no");
         }
     }
+    if("delete".contentEquals(e.getActionCommand()) ) {
+    	String counter = tf2.getText();
+    	String counter2 = tf3.getText();
+    	if(counter2.contains("Salmon") )  {
+    		deleteItem(counter, counter2);
+
+    		//salmonChecker = false;
+    	}
+       if(counter2.contains("Steak") )  {
+    		deleteItem(counter, counter2);
+
+    		//steakChecker = false;
+    	}
+       if(counter2.contains("Lasagna") )  {
+    	   deleteItem(counter, counter2);
+
+   		//steakChecker = false;
+   	}
+       if(counter2.contains("Pizza") )  {
+    	   deleteItem(counter, counter2);
+
+   		//steakChecker = false;
+   	}
+       if(counter2.contains("Cake") )  {
+    	   deleteItem(counter, counter2);
+
+   		//steakChecker = false;
+   	}
+       if(counter2.contains("Ice Cream") )  {
+    	   deleteItem(counter, counter2);
+
+   		//steakChecker = false;
+   	}
+       if(counter2.contains("Milkshake") )  {
+    	   deleteItem(counter, counter2);
+
+      		//steakChecker = false;
+      	}
+       if(counter2.contains("Donut") )  {
+    	   deleteItem(counter, counter2);
+
+      		//steakChecker = false;
+      	}
+}
 	if("switch".equals(e.getActionCommand())) {
 		//ViewOrders display = new ViewOrders();
 		ViewOrders.main(null);
 	}
+
 }
 }
+
